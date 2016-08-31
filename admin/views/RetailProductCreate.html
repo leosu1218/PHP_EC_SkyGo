@@ -1,0 +1,166 @@
+<div id="page-wrapper" style="padding-top:10px;">
+	
+	<div class="row">
+        <div class="col-sm-12">
+        	<strong>
+            	<h2 class="page-header" style="font-family:微軟正黑體; font-weight:500">新增零售商品</h2>
+            </strong>
+        </div>
+    </div>
+
+	<!-- base info -->
+    <div class="row">   	
+		<div class="col-md-6">
+
+			<div class="panel panel-default">
+	            <div class="panel-heading">
+	                商品名稱
+	            </div>
+	            <!-- /.panel-heading -->
+	            <div class="panel-body">  
+
+	        		<div class="form-group">
+	                    <input class="form-control" placeholder="請輸入商品名稱，例如：獨家觸電眼線筆" ng-model="form.name" type="text" />
+	                </div>
+
+	            </div>
+	            <!-- /.panel-body -->
+	        </div>
+
+		</div>
+		<div class="col-md-6">
+
+			<div class="panel panel-default">
+	            <div class="panel-heading">
+	                商品貨號
+	            </div>
+	            <!-- /.panel-heading -->
+	            <div class="panel-body">  
+
+	        		<div class="form-group">
+	                    <input class="form-control" placeholder="請輸入商品貨號，例如：VN00000021" ng-model="form.serial_number" type="text" />
+	                </div>
+
+	            </div>
+	            <!-- /.panel-body -->
+	        </div>
+
+		</div>
+		<div class="col-md-6">
+			
+			<div class="panel panel-default">
+	            <div class="panel-heading">
+	                開放商品可被開團期間
+	            </div>
+	            <!-- /.panel-heading -->
+	            <div class="panel-body">  
+
+	        		<div class="col-md-">
+	        			<div class="form-group input-group">
+                            <span class="input-group-addon">開始日</span>
+                            <input type="date" class="form-control" ng-model="form.ready_time" placeholder="">
+                        </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon">結束日</span>
+                            <input type="date" class="form-control" ng-model="form.removed_time" placeholder="">
+                        </div>
+	        		</div>
+
+	            </div>
+	            <!-- /.panel-body -->
+	        </div>
+
+		</div>
+
+		<div class="col-md-6">
+
+			<div class="panel panel-default">
+	            <div class="panel-heading">
+	                產品描述
+	            </div>
+	            <!-- /.panel-heading -->
+	            <div class="panel-body">  
+	            	<textarea ng-model="form.detail" style="width:100%;"></textarea>
+	            </div>
+	            <!-- /.panel-body -->
+	        </div>
+
+		</div>
+
+		<div class="col-md-6">
+			
+			<div class="panel panel-default">
+	            <div class="panel-heading">
+	                價格設定
+	            </div>
+	            <!-- /.panel-heading -->
+	            <div class="panel-body"> 
+
+	        		<input type="number" min="0" ng-model="form.price" class="form-control" placeholder="請輸入商品價位">
+
+	            </div>
+	            <!-- /.panel-body -->
+	        </div>
+
+		</div>
+
+		<div class="col-md-12">
+
+			<div class="panel panel-default">
+	            <div class="panel-heading">
+	                產品群組
+	            </div>
+	            <!-- /.panel-heading -->
+	            <div class="panel-body">  
+
+	        		<div class="list-group">
+	        			<div ng-repeat="group in productGroups">
+	        				<a class="list-group-item" ng-click="clickProductGroup(group)">
+	                            <i class="fa fa-comment fa-group"></i>
+	                            <label>{{group.name}}</label>
+	                            <span class="pull-right text-muted small">
+				                        <em>
+				                            <i ng-show="group.selected" class="fa fa-check fa-fw ng-hide" style="color: #007C7C;"></i>
+				                            <i ng-show="!(group.selected)" class="fa fa-times fa-fw" style="color: #CC0000;"></i>
+				                        </em>                            	
+				                </span>
+	                        </a>
+	        			</div>
+                    </div>
+	            </div>
+	            <!-- /.panel-body -->
+	        </div>
+
+		</div>
+
+		<div class="col-md-12">
+			<image-update update-url=updateUrl></image-update>
+		</div>
+
+		<div class="col-md-12" ng-show="message.isShowError">
+			<div class="alert alert-warning alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                {{message.showErrorMessage}}
+            </div>
+		</div>
+
+		<!-- create button group -->
+	    	<div class="col-md-12">
+				<div class="btn-group " role="group" aria-label="...">
+				  <div class="btn-group" role="group">
+				    <input type="submit" class="btn btn-primary" ng-click="create()" value="新增"></input>
+				  </div>		  
+				  <div class="btn-group" role="group">
+				    <button ng-click="cancel()" type="button" class="btn btn-default">取消</button>
+				  </div>
+				  <!-- <div class="btn-group" role="group">
+				    <input type="submit" class="btn btn-primary" ng-click="fillIn()" value="田滿"></input>
+				  </div> -->
+				</div>
+			</div>
+	    <!-- create button group /-->
+
+	</div>
+	<!-- base info /-->
+
+</div>

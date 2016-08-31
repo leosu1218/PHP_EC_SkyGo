@@ -1,0 +1,58 @@
+CREATE DATABASE  IF NOT EXISTS `lifecom_skygo` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `lifecom_skygo`;
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: lifecom_skygo
+-- ------------------------------------------------------
+-- Server version	5.6.25
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `platform_user_group_has_permission`
+--
+
+DROP TABLE IF EXISTS `platform_user_group_has_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `platform_user_group_has_permission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `platform_user_group_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `permission_id_pughp_idx` (`permission_id`),
+  KEY `platform_user_group_id_pughp` (`platform_user_group_id`),
+  CONSTRAINT `permission_id_pughp` FOREIGN KEY (`permission_id`) REFERENCES `permission` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `platform_user_group_id_pughp` FOREIGN KEY (`platform_user_group_id`) REFERENCES `platform_user_group` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1129 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `platform_user_group_has_permission`
+--
+
+LOCK TABLES `platform_user_group_has_permission` WRITE;
+/*!40000 ALTER TABLE `platform_user_group_has_permission` DISABLE KEYS */;
+INSERT INTO `platform_user_group_has_permission` VALUES (1,1,1),(2,1,2),(3,1,3),(4,1,4),(5,1,5),(6,1,6),(7,1,7),(8,1,8),(9,1,9),(10,1,10),(11,1,11),(12,1,12),(13,1,13),(14,1,14),(15,1,15),(16,1,16),(17,1,17),(18,1,20),(19,1,21),(20,1,22),(21,1,23),(22,1,24),(23,1,25),(24,1,26),(25,1,27),(26,1,28),(27,1,29),(28,1,30),(29,1,31),(30,1,32),(31,1,33),(32,1,34),(33,1,40),(34,1,41),(35,1,42),(36,1,43),(37,1,44),(38,1,50),(39,1,51),(40,1,52),(41,1,53),(42,1,54),(43,1,55),(44,1,60),(45,1,61),(46,1,62),(47,1,62),(48,1,63),(49,1,64),(50,1,65),(51,1,66),(52,1,67),(53,1,68),(54,1,69),(55,1,70),(56,1,80),(57,1,81),(58,1,82),(59,1,83),(60,1,84),(61,1,85),(62,1,86),(63,1,90),(64,1,91),(65,1,100),(66,1,101),(67,1,102),(68,1,103),(69,1,104),(70,1,110),(71,1,111),(72,1,112),(73,1,113),(74,1,114),(75,1,120),(76,1,121),(77,1,122),(78,1,123),(79,1,124),(80,1,130),(81,1,131),(82,1,132),(83,1,133),(84,1,134),(85,1,140),(86,1,141),(87,1,142),(88,1,143),(89,1,144),(90,1,150),(91,1,151),(92,1,152),(93,1,153),(94,1,154),(95,1,160),(96,1,161),(97,1,162),(98,1,163),(99,1,164),(100,1,170),(101,1,171),(102,1,172),(103,1,173),(104,1,174),(105,1,180),(106,1,181),(107,1,182),(108,1,183),(109,1,184),(110,1,190),(111,1,191),(112,1,192),(113,1,193),(114,1,194),(115,1,200),(116,1,201),(117,1,202),(118,1,203),(119,1,204),(120,1,210),(121,1,211),(122,1,212),(123,1,213),(124,1,214),(125,1,220),(126,1,221),(127,1,222),(128,1,223),(129,1,224),(130,1,230),(131,1,231),(132,1,232),(133,1,233),(134,1,234),(135,1,240),(136,1,241),(137,1,242),(138,1,243),(139,1,244),(140,1,250),(141,1,251),(142,1,252),(143,1,253),(144,1,254),(145,1,260),(146,1,261),(147,1,262),(148,1,263),(149,1,264),(150,1,270),(151,1,271),(152,1,272),(153,1,273),(154,1,274),(155,1,280),(156,1,281),(157,1,282),(158,1,283),(159,1,284),(160,1,290),(161,1,291),(162,1,292),(163,1,293),(164,1,294),(165,1,300),(166,1,301),(167,1,302),(168,1,303),(169,1,304),(170,1,310),(171,1,311),(172,1,312),(173,1,313),(174,1,314),(175,1,320),(176,1,321),(177,1,322),(178,1,323),(179,1,324),(180,1,330),(181,1,331),(182,1,332),(183,1,333),(184,1,334),(185,1,340),(186,1,341),(187,1,342),(188,1,343),(189,1,344),(1052,2,1),(1053,2,2),(1054,2,3),(1055,2,4),(1056,2,5),(1057,2,6),(1058,2,7),(1059,2,8),(1060,2,9),(1061,2,160),(1062,2,161),(1063,2,162),(1064,2,163),(1065,2,164),(1066,2,170),(1067,2,171),(1068,2,172),(1069,2,173),(1070,2,174),(1071,2,180),(1072,2,181),(1073,2,50),(1074,2,51),(1075,2,52),(1076,2,53),(1077,2,54),(1078,2,55),(1079,2,60),(1080,2,61),(1081,2,62),(1082,2,63),(1083,2,64),(1084,2,65),(1085,2,66),(1086,2,67),(1087,2,68),(1088,2,69),(1089,2,190),(1090,2,191),(1091,2,192),(1092,2,193),(1093,2,194),(1094,2,220),(1095,2,221),(1096,2,222),(1097,2,223),(1098,2,224),(1099,2,300),(1100,2,301),(1101,2,302),(1102,2,303),(1103,2,304),(1104,2,30),(1105,2,31),(1106,2,32),(1107,2,33),(1108,2,34),(1109,2,40),(1110,2,41),(1111,2,42),(1112,2,43),(1113,2,44),(1114,2,100),(1115,2,101),(1116,2,102),(1117,2,103),(1118,2,104),(1119,2,200),(1120,2,201),(1121,2,202),(1122,2,203),(1123,2,204),(1124,2,300),(1125,2,301),(1126,2,302),(1127,2,303),(1128,2,304);
+/*!40000 ALTER TABLE `platform_user_group_has_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2016-05-18 15:59:32

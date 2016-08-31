@@ -1,0 +1,249 @@
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="page-header" style="font-family:微軟正黑體; font-weight:500">活動內容</h1>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <!-- statement -->
+        <div class="col-lg-12" ng-show="showStatement">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="home">
+                    <font size="5"> 對帳明細 </font>
+                </div>
+                <div class="panel-body">
+
+                    <div class="col-md-12" style="margin-bottom: 10px; font-size: 16px">
+                        <div class="col-md-2" style="color: blue">
+                            銷售總金額(不含運): {{totalSpecPrice}}
+                        </div>
+                        <div class="col-md-2" style="color: blue">
+                            販賣總數量:{{totalSpecAmount}}
+                        </div>
+                        <div class="col-md-2" style="color: red">
+                            單件批發價:{{wholesalePrice}}
+                        </div>
+                        <div class="col-md-2" style="color: darkgreen">
+                            總營收:{{salePrice}}
+                        </div>
+                        <div class="col-md-4">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default" ng-click="confirmStatement()">確認此帳目</button>
+                                <button type="button" class="btn btn-default" ng-click="abnormalStatement()">帳目有問題</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <order-spec-list
+                            api="statementApi"
+                            instance="statement"
+                            search="statementSearch">
+                    </order-spec-list>
+                </div>
+            </div>
+        </div>
+        <!-- statement -->
+
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="home">
+                    <font size="5"> 訂購單資訊 </font>
+                </div>
+                <div class="panel-body">
+                    <unified-order-list
+                            api="orderApi"
+                            spec-api="orderSpecApi"
+                            instance="order"
+                            search="orderSearch">
+
+                    </unified-order-list>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="home">
+                    <font size="5"> 退貨單資訊 </font>
+                </div>
+                <div class="panel-body">
+                    <unified-returned-list
+                            api="returnedApi"
+                            spec-api="returnedSpecApi"
+                            instance="returned"
+                            search="returnedSearch">
+                    </unified-returned-list>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--  <div class="row">
+         <div class="col-md-12">
+             <div class="panel panel-default">
+                 <div class="panel-heading" id="home">
+                     <font size="5">基本資訊</font>
+                 </div>
+                 <div class="panel-body">
+
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             <label>活動名稱: {{activity.name}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>活動實際售價: {{activity.price}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>活動開始時間: {{activity.startDate}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>活動結束時間: {{activity.endDate}}</label>
+                         </div>
+                          <div class="form-group">
+                             <label>活動設置限量數: {{activity.buyMax}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>活動設置成單數: {{activity.buyMin}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>活動狀態: {{getCurrectState(activity.endDate, activity.startDate, activity.state)}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>已成立訂單數: {{activity.buyerCounter}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>已購買產品數: {{activity.productCounter}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>平台附註: {{activity.note}}</label>
+                         </div>
+                     </div>
+
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             <label>團購主姓名: {{activity.masterName}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>團購主信箱: {{activity.masterEmail}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>商品品號(鉅盛): {{activity.productSerial}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>商品名稱: {{activity.productName}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>商品上架日期: {{activity.productReadyTime}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>商品下架日期: {{activity.productRemovedTime}}</label>
+                         </div>
+                         <div class="form-group">
+                             <label>活動舉辦最小天數限制: {{activity.productMax}} 天</label>
+                         </div>
+                         <div class="form-group">
+                             <label>活動舉辦最大天數限制: {{activity.productMin}} 天</label>
+                         </div>
+
+                         <div class="form-group">
+                             <label>商品最多販賣數量限制: {{activity.maxProductAmount}} </label>
+                         </div>
+
+                         <div class="form-group">
+                             <label>商品最少販賣數量限制: {{activity.minProductAmount}} </label>
+                         </div>
+
+                          <div class="form-group">
+                             <label>活動說明: {{activity.detail}} </label>
+                         </div>
+                     </div>
+
+                 </div>
+             </div>
+         </div>
+     </div> -->
+
+    <!-- <br> -->
+    <!-- <div class="panel panel-default" id="page">
+        <div class="panel-heading" font size="5">
+            <font size="5">帳目資訊</font>
+        </div>
+        <div class="panel-body">
+           	<div class="col-md-3">
+    			<div class="form-group">
+                    <label>出貨數量: {{activity.totalOrderAmount}}</label>
+                </div>
+                <div class="form-group">
+                    <label>總收款額: {{activity.totalOrderPrice}}</label>
+                </div>
+    		</div>
+
+    		<div class="col-md-3">
+    			<div class="form-group">
+                    <label>退貨數量: {{activity.totalReturnAmount}}</label>
+                </div>
+                <div class="form-group">
+                    <label>總退款額: {{activity.totalReturnPrice}}</label>
+                </div>
+    		</div>
+
+    		<div class="col-md-3">
+    			<div class="form-group" >
+                    <label>銷售數量: {{activity.saleAmount}}</label>
+                </div>
+                <div class="form-group" >
+                    <label>總銷售額: {{activity.salsePrice}}</label>
+                </div>
+    		</div>
+
+    		<div class="col-md-3">
+    			<div class="form-group" >
+                    <label>批發總成本: {{activity.totalWholesale}}</label>
+                </div>
+                <div class="form-group">
+                    <label>營收: {{activity.salsePrice - activity.totalWholesale}}</label>
+                </div>
+    		</div>
+        </div>
+    </div> -->
+
+    <!-- <br> -->
+    <!-- <div class="panel panel-default" id="page">
+        <div class="panel-heading" font size="5">
+            <font size="5">已經購買的訂單資訊</font>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <sb-smart-table instance="orderTable"></sb-smart-table>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <br> -->
+    <!-- <div class="panel panel-default" id="page">
+        <div class="panel-heading" font size="5">
+            <font size="5">申請退貨的訂單資訊</font>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <sb-smart-table instance="returnTable"></sb-smart-table>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="row" style="padding-buttom:5px;">
+                <div  ng-repeat="button in exportButtons" class="col-md-3">
+                    <button class="btn col-md-11" ng-click="button.click()">
+                        {{button.text}}
+                        <i class="fa fa-{{button.icon}}"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+</div>
+<sb-alert instance="alert"></sb-alert>
+<sb-modal instance="modal"></sb-modal>

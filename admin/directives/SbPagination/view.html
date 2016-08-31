@@ -1,0 +1,37 @@
+<div class="col-md-12">
+	
+	<div class="col-md-6 left">
+		<h5 style="line-height:59px">在 {{recordCount}} 筆資料中的第 {{recordStart}} - {{recordEnd}} 筆資料</h5>
+	</div>
+
+	<div class="col-md-6 right">
+		<nav class="col-md-8">
+		  <ul class="pagination">
+		    <li ng-show="showPreviousChapter">
+		      <a href="" aria-label="Previous" ng-click="previousClickHandler(pageNo)">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+
+		    <li ng-repeat="page in pages" class="{{page.active}}">
+		    	<a href="" ng-click="pageClickHandler(page)">{{page.number}}</a>
+		    </li>    
+		    
+		    <li ng-show="showNextChapter">
+		      <a href="" aria-label="Next" ng-click="nextClickHandler(pageNo)">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
+		<div class="col-md-4" style="margin: 20px 0;">{{}}
+		    <li class="input-group">
+		      	<input type="text" class="form-control" ng-model="userSearchNum">
+		      	<span class="input-group-btn">
+		        	<button class="btn btn-default" type="button" ng-click="getNumber()">前往</button>
+		      	</span>
+		    </li>
+		</div>
+	</div>
+
+</div>

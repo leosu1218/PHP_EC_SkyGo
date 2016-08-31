@@ -1,0 +1,43 @@
+
+
+<div>
+    <div class="container">
+        <div class="row">
+	        <div class="col-md-12" style="padding-left: 15px; padding-bottom: 15px;">
+	        	<p class="col-md-6" style="padding-left: 0px;">HOME <img src="/images/arrow.png"> {{mainTag}}</p>
+	        	<h4 class="text-right col-md-6">NEWS FOR WEEK</h4>
+	        </div>
+            <div class="col-md-12 collectionimg hidden-xs"  >
+                <div class="col-md-12">
+                    <a href="{{imglink}}"><img src="/upload/website/tag/{{tegImage}}"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 hidden-xs hidden-sm">
+               <product-left-list instance="prductTag" api="apiUrl" ></product-left-list>
+			</div>
+			<div class="col-md-9">
+				<div class="row" style="margin-top: 10px;" ng-repeat="products in productArray">
+                    <div class="col-md-4 product-mean "ng-repeat="product in products" style="margin-bottom: 50px;">
+                        <a href="{{productPath + '/' + product.id}}" style="text-decoration: none; color:black;">
+                        	<img src="{{imagePath + product.coverPhoto}}" >
+							<p style="height: 40px;word-break: break-all">{{product.name}}</p>
+							<div class="text-right shoppingcart-list col-md-12 col-xs-12">
+								<del class="col-md-5 col-xs-5 del-pad" style="margin-top: 9px;color: #999;">NT$ {{product.suggestPrice}}</del>
+								<span class="col-md-6 col-xs-6 del-pad" style="color: red">NT$ 
+									<span style="font-size: 24px;">{{product.price}}</span>
+								</span>
+								<span class="glyphicon glyphicon-shopping-cart col-md-1 col-xs-1 del-pad" aria-hidden="true" style="margin-top: 9px;"></span>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+        <sky-go-pagination instance="pagination"></sky-go-pagination>
+<sb-alert instance="alert"></sb-alert>

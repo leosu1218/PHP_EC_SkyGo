@@ -1,0 +1,110 @@
+    <div>
+
+    	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom:0;">
+            
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                <a class="navbar-brand" href="#!">天GO 團購活動管理系統</a>
+            
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+
+                <!-- /.dropdown -->
+                <li class="dropdown">
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages in" style="width:150px;">
+                        <li>
+                            <a href="#"><i class="fa fa-key"></i> 修改自己密碼</a>
+                        </li>
+                        <li>
+                            <a href="" ng-click="logout()"><i class="fa fa-sign-out fa-fw"></i>登出系統</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse collapse" >
+                    <ul class="nav in" id="side-menu">
+                    	
+                    	 <!-- System Management -->
+                     <!--    <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-user fa-fw"></i> 個人資料
+                                </div>
+                            </a>
+                        </li> -->
+
+                        <!-- System Management -->
+                        <li>
+                            <a href="#!/activity/list/1/100">
+                                <div>
+                                    <i class="fa fa-bars fa-fw"></i> 活動列表
+                                </div>
+                            </a>
+                        </li>
+                      
+                        <!-- System Management -->
+                        <li>
+                            <a href="#!/activity/create">
+                                <div>
+                                    <i class="fa fa-plus fa-fw"></i> 建立活動
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- System Management -->
+                      <!--   <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-dollar fa-fw"></i> 我的帳戶
+                                </div>
+                            </a>
+                        </li>
+ -->
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+
+        </nav>
+
+        <!-- Modal for show build header, menu error. -->		
+		<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">{{modal.title}}</h4>
+		      </div>
+		      <div class="modal-body">
+		        {{modal.message}}
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">{{modal.buttonText}}</button>		       
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+    </div>
+            

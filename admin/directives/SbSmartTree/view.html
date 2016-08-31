@@ -1,0 +1,72 @@
+<script type="text/ng-template"  id="NodeItem.html">
+
+    <div
+        class="timeline-badge info"
+        ng-click="onNodeClick(data)"
+        style="margin-top: -20px;"
+    >
+
+        <i ng-show="data.isOpen" class="{{openIcon}}"></i>
+        <i ng-hide="data.isOpen" class="{{closeIcon}}"></i>
+        {{data.id}}
+    
+    </div>
+    <div class="timeline-panel" ng-show="data.isOpen">
+        
+        <div class="timeline-heading">
+            
+            <h4 class="timeline-title">
+                <span ng-show="isApplyAppend" class="{{createIcon}}" ng-click="appendNode(data)" style="margin:1px;"></span>
+                <span ng-show="isApplyDelete" class="{{deleteIcon}}" ng-click="deleteNode(data)" style="margin:1px;"></span>
+                <span ng-show="applySingleSelectedHandler(data)" ng-click="selectedNode(data)">
+                    <span class="{{selectedIcon}}" ng-show="isSingleSelected(data)" style="margin:1px;"></span>
+                    <span class="{{unselectedIcon}}" ng-hide="isSingleSelected(data)" style="margin:1px;"></span>
+                </span>
+                <span ng-show="applyMutipleSelectedHandler(data)" ng-click="selectedNode(data)">
+                    <span class="{{selectedIcon}}" ng-show="data.isSelected" style="margin:1px;"></span>
+                    <span class="{{unselectedIcon}}" ng-hide="data.isSelected" style="margin:1px;"></span>
+                </span>
+                <div ng-click="onAttributeClick(data, 'name')" style="margin:1px;">
+                    <label>{{data.name.label}}</label>
+                    <span class="{{data.name.icon}}"></span>
+                    {{data.name.value}}
+                </div>
+                <div ng-click="onAttributeClick(data, 'type')" style="margin:1px;">
+                    <label>{{data.type.label}}</label>
+                    <span class="{{data.type.icon}}"></span>
+                    {{filter(data, "type", data.type.value)}}
+                </div>
+            </h4>
+
+            <ul class="timeline">
+                <li class="timeline-inverted"
+                    style="margin-bottom: 70px;"
+                    ng-repeat="data in data.sub" 
+                    ng-include="'NodeItem.html'"
+                >
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</script>
+
+<button 
+    ng-show="isApplyAppend" 
+    type="button" 
+    ng-click="appendNodeInRoot()" 
+    class="btn btn-default btn-md">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+</button>
+<ul class="timeline">
+    <li class="timeline-inverted" 
+        style="margin-bottom: 70px;" 
+        ng-repeat="data in tree" 
+        ng-include="'NodeItem.html'">
+    </li>
+</ul>
+
+<sb-modal instance="modal"></sb-modal>
+<sb-alert instance="alert"></sb-alert>

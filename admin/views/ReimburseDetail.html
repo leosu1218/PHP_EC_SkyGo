@@ -1,0 +1,132 @@
+<div id="page-wrapper">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td></td>
+                    <td>ID</td>
+                    <td>品號</td>
+                    <td>產品名稱</td>
+                    <td>規格</td>
+                    <td>數量</td>
+                    <td>單價</td>
+                    <td>小計</td>
+                    <td>支付狀態</td>
+                    <td>訂單狀態</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="i in items">
+                    <td></td>
+                    <td>{{i.id}}</td>
+                    <td>{{i.spec_serial}}</td>
+                    <td>{{i.product_name}}</td>
+                    <td>{{i.spec_name}}</td>
+                    <td>{{i.spec_amount}}</td>
+                    <td>{{i.spec_unit_price}}</td>
+                    <td>{{i.spec_total_price}}</td>
+                    <td>{{valuePay}}</td>
+                    <td>{{valueState}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="panel panel-info">
+            <div class="panel-heading panel_heading_style">
+                <label class="text_style">訂單資訊</label>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-4">
+                    <h5>訂單編號 : {{row.serial}}</h5>
+                    <h5>下單日期 : {{row.create_datetime}}</h5>
+                    <h5>付款日期 : {{row.pay_notify_datetime}}</h5>
+                    <h5>付款別 : {{valueWhoPay}}</h5>
+                </div>
+                <div class="col-md-4">
+                    <h5>退款序號 : {{row.reimburse_serial}}</h5>
+                    <h5>訂單狀態 : {{valueState}}</h5>
+                    <h5>退款日期 : {{row.reimburse_datetime}}</h5>
+                    <h5>退款金額 : NT${{row.reimburse_money}}</h5>
+                </div>
+                <div class="col-md-4">
+                    <h5>退貨原因 : {{row.reimburse_remark}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <h5 class="management-title">訂購人資料</h5>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="Tableleft">會員ID : </td>
+                    <td style="width: 30%;">{{row.consumer_user_id}}</td>
+                    <td class="Tableleft">電話 : </td>
+                    <td>{{row.buyer_phone_number}}</td>
+                </tr>
+                <tr>
+                    <td class="Tableleft">訂購人 : </td>
+                    <td>{{row.buyer_name}}</td>
+                    <td class="Tableleft">Email : </td>
+                    <td>{{row.buyer_email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <table class="table table-bordered" style="margin-bottom: 0px;">
+            <thead>
+                <tr>
+                    <h5 class="management-title">帳戶資料</h5>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="Tableleft">銀行 : </td>
+                    <td style="width: 30%;">{{row.reimburse_bank}}</td>
+                    <td class="Tableleft">銀行分行 : </td>
+                    <td>{{row.reimburse_bank_branch}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <tr>
+                <td class="Tableleft">帳戶號碼: </td>
+                <td>{{row.reimburse_account}}</td>
+            </tr>
+            <tr>
+                <td class="Tableleft">戶名: </td>
+                <td>{{row.reimburse_name}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+<style type="text/css">
+    .Tableleft {
+        text-align: right;
+        background-color: #f4f7f8;
+        width: 20%;
+    }
+    
+    .management-title {
+        border: #d9edf7 solid 1px;
+        padding: 15px 15px;
+        margin: 0px;
+        border-radius: 3px;
+        font-weight: 700;
+        color: #31708f;
+        background-color: #d9edf7;
+        border-color: #bce8f1;
+    }
+</style>

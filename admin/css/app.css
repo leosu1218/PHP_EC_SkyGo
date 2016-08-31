@@ -1,0 +1,80 @@
+// ---- Set up variables ----
+@dark-blue: #1e718b;	
+@blue:      #2ba6ca; 
+@dark-gray: #222222;
+@green:     #8fdc21;
+
+// ---- Mixins ----
+
+
+
+.right-hand-box {
+    padding-top: 20px;
+	padding-bottom: 20px;
+    min-height:240px;
+}
+
+
+.tab-pane .well {
+    .right-hand-box;
+}
+
+.well.testimonal-well {
+    .right-hand-box;
+}
+
+.testimonials {
+  padding:10px;
+  border:1px solid black;
+  height:200px;
+  overflow:auto;
+}
+
+.testimonials {
+  -webkit-transition:all linear 0.5s;
+  -moz-transition:all linear 0.5s;
+  -o-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+  display:block!important;
+}
+
+.testimonials.ng-hide-add {
+    opacity: 1;
+}
+
+.testimonials.ng-hide-add.ng-hide-add-active {
+    opacity:0;
+}
+ 
+.testimonials.ng-hide-remove {
+    opacity:0;
+    
+}
+.testimonials.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1; 
+}
+
+.color-blue {
+    color: #337ab7;
+}
+
+.Tableleft {
+    text-align: right;
+    background-color: #f4f7f8;
+    width: 20%;
+}
+
+.management-title {
+    border: #d9edf7 solid 1px;
+    padding: 15px 15px;
+    margin: 0px;
+    border-radius: 3px;
+    font-weight: 700;
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.management-title-p {
+    float: left;
+    padding-top: 10px;
+}

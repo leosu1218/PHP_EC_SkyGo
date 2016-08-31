@@ -1,0 +1,3 @@
+"id","domain_name","group_id","name","account","email","hash","salt"
+"1","skygo.com.tw","1","admin","admin","admin@skygo.com","3c97619159112c2ac86d16a0b6f7a2ad2b7ed010","DFL6u"
+"2","skygo.com.tw","1","user2","user2","admin@skygo.com","3c97619159112c2ac86d16a0b6f7a2ad2b7ed010","DFL6u"

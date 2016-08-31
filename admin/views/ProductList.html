@@ -1,0 +1,28 @@
+<form class="form-horizontal page" id="page-wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="page-header">管理 {{prdouctType}} 商品</h1>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <font size="5">商品列表</font>
+            <span style="float:right;">
+                <a href="#!/product/{{channel}}/create">
+                    <button type="button" class="btn btn-warning btn btn-primary">
+                        <i class="fa fa-plus"> 新增商品</i>
+                    </button>
+                </a>
+            </span>
+        </div>
+        <div class="panel-body">
+            <!--<sb-smart-table instance="table"></sb-smart-table>-->
+            <wholesale-product-list 
+                    instance="list" 
+                    enable-select="false"
+                    detail="detail">
+            </wholesale-product-list>
+        </div>
+    </div>
+</form>
+

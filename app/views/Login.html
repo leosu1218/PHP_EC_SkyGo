@@ -1,0 +1,79 @@
+<div class="container" ng-app="">
+    <div class="row">
+        <div class="top-sign-in">
+            <h3>SIGN IN</h3>
+        </div>
+        <div class="text-center" style="font-size: 18px;">
+            登入109life天GO會員即可快速結帳
+        </div>
+    </div>
+    <div class="row" style="padding-top: 20px;">
+        <div class="col-sm-6" style="border-right:#b2afb0 3px solid;" ng-model="login" ng-hide="start_register">
+            <form role="form">
+                <div class="form-group">
+                    <input class="form-control" placeholder="會員帳號/ mail帳號" ng-model="email" type="text">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="會員密碼" ng-model="password" type="password">
+                </div>
+                <div class="checkbox">
+                    <div class="col-md-6" style="text-align: center;">
+                        <input type="checkbox" ng-model="remember">記住帳號
+                    </div>
+                    <div class="col-md-6" style="text-align: center;">
+                        忘記密碼
+                    </div>
+                </div>
+                <div>
+                    <div class="col-md-6 button-sign-in" ng-click="userLogin()">
+                        <h5>SIGN IN</h5>
+                    </div>
+                    <div class="col-md-6 button-sign-in" type="button">
+                        <h5 ng-click="start_register=true">註冊新帳號</h5>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-6" style="border-right:#b2afb0 3px solid;" ng-model="register" ng-show="start_register">
+            <form role="form">
+                <div class="form-group">
+                    <label>請輸入姓名</label>
+                    <input type="text" class="form-control" placeholder="name" ng-model="register.name">
+                </div>
+                <div class="form-group">
+                    <label>請輸入信箱(預設為帳號)</label>
+                    <input type="email" class="form-control" placeholder="mail" ng-model="register.email">
+                </div>
+                <div class="form-group">
+                    <label>請輸入密碼</label>
+                    <input type="password" class="form-control" placeholder="password" ng-model="register.password">
+                </div>
+                <div class="form-group">
+                    <label>請再次輸入密碼</label>
+                    <input type="password" class="form-control" placeholder="password" ng-model="register.checkPassword">
+                </div>
+                <div>
+                    <div class="col-md-6 button-sign-in">
+                        <h5 ng-click="userRegister()">註冊</h5>
+                    </div>
+                    <div class="col-md-6 button-sign-in">
+                        <h5 ng-click="start_register=false">返回</h5>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-6 login_detail">
+            <h4>THE FIRST SHOPPING</h4>
+            <h6>第一次購物</h6>
+            <div class="login_detail_border">
+                <h6>不需要加入會員就可以直接進行購物完成訂單後並填寫個人資料系統將自動將您升級為會員。</h6>
+            </div>
+            <h6 style="letter-spacing: 8px;">可直接登入Facebook、Google</h6>
+            <div class="login_detail_img">
+                <a href="/api/oauth/login/fb" target="_top"><img class="img-rounded" src="/images/FB.png"></a>
+                <a href="/api/oauth/login/google" target="_top"><img class="img-rounded" src="/images/google.jpg"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<sb-alert instance="alert"></sb-alert>

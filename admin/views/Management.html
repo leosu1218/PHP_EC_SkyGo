@@ -1,0 +1,128 @@
+<div id="page-wrapper">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td></td>
+                    <td>ID</td>
+                    <td>品號</td>
+                    <td>產品名稱</td>
+                    <td>規格</td>
+                    <td>數量</td>
+                    <td>單價</td>
+                    <td>小計</td>
+                    <td>出貨日</td>
+                    <td>貨運方式</td>
+                    <td>單號</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="i in items">
+                    <td></td>
+                    <td>{{i.id}}</td>
+                    <td>{{i.spec_serial}}</td>
+                    <td>{{i.product_name}}</td>
+                    <td>{{i.spec_name}}</td>
+                    <td>{{i.spec_amount}}</td>
+                    <td>{{i.spec_unit_price}}</td>
+                    <td>{{i.spec_total_price}}</td>
+                    <td>{{i.delivery_datetime}}</td>
+                    <td>{{i.delivery_channel}}</td>
+                    <td>{{i.delivery_number}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="panel panel-info">
+            <div class="panel-heading panel_heading_style">
+                <label class="text_style">訂單資訊</label>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-4">
+                    <h5>訂單編號 : {{row.serial}}</h5>
+                    <h5>商品總金額 : NT${{row.product_total_price}}</h5>
+                    <h5>折價卷 : NT$ 0</h5>
+                    <h5>購物金折抵 : NT$ 0</h5>
+                    <h5>運費 : NT${{row.fare}}</h5>
+                    <h5>實付金額 : NT${{row.final_total_price}}</h5>
+                </div>
+                <div class="col-md-4">
+                    <h5>下單日期 : {{row.create_datetime}}</h5>
+                    <h5>付款日期 : {{row.pay_notify_datetime}}</h5>
+                    <h5>付款別 : {{valueWhoPay}}</h5>
+                    <h5>付款帳號 : </h5>
+                    <h5>支付狀態 : {{valuePay}}</h5>
+                    <h5>訂單狀態 : {{valueState}}</h5>
+                </div>
+                <div class="col-md-4">
+
+                    <h5>開立發票日 : null</h5>
+                    <h5>發票號碼 : </h5>
+                    <h5>發票抬頭 : {{row.companyName}}</h5>
+                    <h5>統一編號 : {{row.taxID}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <h5 class="management-title">購買人資料</h5>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="Tableleft">訂購人 : </td>
+                    <td style="width: 30%;">{{row.buyer_name}}</td>
+                    <td class="Tableleft">訂購人電話 : </td>
+                    <td>{{row.buyer_phone_number}}</td>
+                </tr>
+                <tr>
+                    <td class="Tableleft">付款方式 : </td>
+                    <td>{{valueWhoPay}}</td>
+                    <td class="Tableleft">Email : </td>
+                    <td>{{row.buyer_email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <table class="table table-bordered" style="margin-bottom: 0px;">
+            <thead>
+                <tr>
+                    <h5 class="management-title text-right" style="padding: 6px 15px;">
+                        <p class="management-title-p">收件人資料</p>
+                        <button class="btn btn-default" ng-click="remarkReceiver(row)">修改</button>
+                    </h5>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="Tableleft">姓名 : </td>
+                    <td style="width: 30%;">{{row.receiver_name}}</td>
+                    <td class="Tableleft">電話 : </td>
+                    <td><input class="form-control" type="text" ng-model="row.receiver_phone_number" /></td>      
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <tr>
+                <td class="Tableleft">寄送地址: </td>
+                <td><input class="form-control" type="text" ng-model="row.receiver_address" /></td>
+            </tr>
+            <tr>
+                <td class="Tableleft">備註: </td>
+                <td><input class="form-control" type="text" ng-model="row.consumer_remark" /></td>
+            </tr>
+            <tr>
+                <td class="Tableleft">管理者備註: </td>
+                <td><textarea class="form-control" type="text" rows="6" ng-model="row.remark"></textarea></td>
+            </tr>
+        </table>
+    </div>
+</div>

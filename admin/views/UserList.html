@@ -1,0 +1,29 @@
+
+
+<form class="form-horizontal page" id="page-wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="page-header">管理使用者</h1>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" style="overflow:hidden;">
+            <font size="5">使用者列表</font>
+            <span style="float:right;">
+            <a href="#!/user/create">
+                <button type="submit" class="btn btn-warning btn btn-primary" >
+                    <i class="fa fa-plus"> 新增使用者</i>
+                </button>
+            </a>
+            </span>
+        </div>
+        
+        <div class="panel-body">
+            <sb-smart-table instance="table"></sb-smart-table>
+        </div>
+        <sb-alert instance="alert"></sb-alert>
+        <sb-modal instance="modal"></sb-modal>
+    </div>
+    
+</form>

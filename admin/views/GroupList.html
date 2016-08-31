@@ -1,0 +1,30 @@
+
+
+<form class="form-horizontal page" id="page-wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="page-header">管理群組</h1>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <font size="5">群組列表</font>
+            <span style="float:right;">
+                <a href="#!/group/create">
+                    <button type="button" class="btn btn-warning btn btn-primary">
+                        <i class="fa fa-plus"> 新增群組</i>
+                    </button>
+                </a>
+            </span>
+        </div>
+        <div class="col-md-12" style="margin-top:5px">
+            <alert  ng-repeat="message in messages" ng-show="{{message.show}}" type="{{message.type}}" close="closeAlert($index)">{{message.msg}}</alert>
+        </div>
+        <div class="panel-body">
+            <sb-smart-table instance="table"></sb-smart-table>
+        </div>
+        <sb-alert instance="alert"></sb-alert>
+        <sb-modal instance="modal"></sb-modal>
+    </div>
+</form>
+

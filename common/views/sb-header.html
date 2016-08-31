@@ -1,0 +1,216 @@
+    <div>
+
+    	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom:0;">
+            
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                <a class="navbar-brand" href="#!">天GO 平台管理系統</a>
+            
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+
+                <!-- /.dropdown -->
+                <li class="dropdown">
+
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages in" style="width:150px;">
+                        <li>
+                            <a href="#!/admin/password/modify"><i class="fa fa-key"></i> 修改自己密碼</a>
+                        </li>
+                        <li>
+                            <a href="" ng-click="logout()"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse collapse" >
+                    <ul class="nav in" id="side-menu">
+
+                    	<!-- Group Management -->
+                        <li ng-show="showItem['platform_user_group']">
+                            <a href="#!/group/list/1/1000">
+                                <div>
+                                    <i class="fa fa-group fa-fw"></i> 管理群組
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- User Management -->
+                       <!--  <li ng-show="showItem['platform_user']">
+                            <a href="#!/user/list">
+                                <div>
+                                    <i class="fa fa-child fa-fw"></i> 管理使用者
+                                </div>
+                            </a>
+                        </li> -->
+
+                        <!-- Website Management -->
+                        <li ng-show="showItem['platform_website']">
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> 網站管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">首頁<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">廣告看板</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">推薦商品</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">推薦商品分類</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">推薦影音</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">推薦影音分類</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <!-- Groupbuying Management -->
+                        <li ng-show="showItem['groupbuying_activity'] || showItem['gb_master_user']">
+                            <a href="#"><i class="glyphicon glyphicon-asterisk fa-fw"></i> 團購經營<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li ng-show="showAction['gb_master_user']['list']">
+                                    <a href="#!/groupbuying/master/list/1/100">團購主</a>
+                                </li>
+                                <li ng-show="showAction['groupbuying_activity']['list']">
+                                    <a href="#!/groupbuying/activity/list/1/100">團購活動</a>
+                                </li>                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <!-- Product Management -->
+                        <li ng-show="showItem['retail_product'] || showItem['wholesale_product'] || showItem['product_group']">
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> 商品總管<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li ng-show="showAction['retail_product']['list']">
+                                    <a href="">一般商品</a>
+                                </li>
+                                <li ng-show="showAction['wholesale_product']['list']">
+                                    <a href="#!/product/wholesale/list/1/100">批發商品</a>
+                                </li>   
+                                <li ng-show="showAction['product_group']['list_retail']">
+                                    <a href="#!/product/group/retail/list/all/1/100">一般商品分類</a>
+                                </li>   
+                                 <li ng-show="showAction['product_group']['list_wholesale']">
+                                    <a href="#!/product/group/wholesale/list/all/1/100">批發商品分類</a>
+                                </li>                                              
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <!-- Media Management -->
+                        <li ng-show="showItem['media']">
+                            <a href="#"><i class="glyphicon glyphicon-film fa-fw"></i> 媒體庫<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">媒體製作</a>
+                                </li>
+                                <li>
+                                    <a href="#">影音分類</a>
+                                </li>                               
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <!-- Report Management -->
+                        <li ng-show="showItem['report']">
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 銷售戰情室<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">影音銷售分析<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">金額分析</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">類別分析</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">數量分析</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                                <li>
+                                    <a href="#">商品銷售分析<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">金額分析</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">類別分析</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">數量分析</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <!-- System Management -->
+                        <li ng-show="showItem['system_config']">
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-wrench fa-fw"></i> 系統設定
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+
+        </nav>
+
+        <!-- Modal for show build header, menu error. -->		
+		<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">{{modal.title}}</h4>
+		      </div>
+		      <div class="modal-body">
+		        {{modal.message}}
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">{{modal.buttonText}}</button>		       
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+    </div>
+            

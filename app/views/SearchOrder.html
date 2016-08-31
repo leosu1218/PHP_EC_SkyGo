@@ -1,0 +1,229 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="padding-left: 15px; padding-bottom: 15px;">
+            <p class="col-md-6" style="padding-left: 0px;">HOME <img src="/images/arrow.png"> 訂單查詢</p>
+        </div>
+    </div>
+
+    <div class="row order-pad">
+        <div class="col-md-12 order-title">
+            <h4>訂單查詢
+                <h5 class="hidden-sm hidden-xs">*僅保留90天內的訂單資料提供查詢</h5>
+            </h4>
+        </div>
+
+        <!-- 購物明細PHONE -->
+        <div class="col-xs-12 visible-sm visible-xs">
+            <div class="panel panel-default">
+                <div class="panel-body del-pad">
+                    <table class="table col-xs-12 phone-title" style="margin-bottom: 0px;">
+                        <tr>
+                            <td>訂單編號: {{orders.serial}}</td>
+                            <td>訂購日期: {{newDate}}</td>
+                        </tr>
+                    </table>
+                    <div class="col-xs-12 del-pad" ng-repeat="spec in specs" style="padding-top: 5px;">
+                        <div class="col-xs-10">
+                            <p>{{spec.product_name}}</p>
+                            <p style="color: #e3850b;">規格: {{spec.spec_name}}</p>
+                        </div>
+                        <div class="col-xs-2">{{spec.spec_amount}}</div>
+                        <div class="col-xs-12"><hr class="order-hr" style="margin:0px -15px 0px -15px;"></div>
+                    </div>
+                    <div class="col-xs-12 text-right" style="padding-top: 15px;">
+                        <div class="col-xs-8">
+                            <p>小計金額</p>
+                            <p>折價券</p>
+                            <p>購物金折抵</p>
+                            <p>運費</p>
+                        </div>
+                        <div class="col-xs-4 del-pad">
+                            <p>NT$ {{orders.product_total_price}}</p>
+                            <p>NT$ 0</p>
+                            <p>NT$ 0</p>
+                            <p>NT$ {{orders.fare}}</p>
+                        </div>
+                        <hr class="col-xs-12 order-hr-spec" style="width: 50%;">
+                        <div class="col-xs-8">
+                            <p>實付金額</p>
+                        </div>
+                        <div class="col-xs-4 del-pad">
+                            <p>NT$ <span style="color:red;">{{orders.final_total_price}}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 購物明細PC -->
+        <div class="col-md-12 visible-md visible-lg">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table order-table" style="margin-bottom: 0;">
+                        <tr>
+                            <td class="td-name"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>購物明細</td>
+                            <td class="td-name-r">訂單編號: {{orders.serial}}</td>
+                            <td class="td-name-r">訂購日期: {{orders.create_datetime}}</td>
+                            <td class="td-name-r">付款日期: {{orders.pay_notify_datetime}}</td>
+                        </tr>
+                    </table>
+                    <hr class="order-hr" style=" margin-top: 0;">
+                    <div class="col-md-12 text-center">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-3">商品</div>
+                        <div class="col-md-2">數量</div>
+                        <div class="col-md-2">單價</div>
+                        <div class="col-md-2">金額</div>
+                        <div class="col-md-2">狀態</div>
+                    </div>
+                    <hr class="order-hr">
+                    <div class="col-md-12 text-center" ng-repeat="spec in specs">
+                        <div class="col-md-1 del-pad" >
+                            <img src="/upload/image/{{spec.cover_photo_img}}" style="width: 100%;">
+                        </div>
+                        <div class="col-md-3">
+                            <p>{{spec.product_name}}</p>
+                            <p>規格: {{spec.spec_name}}</p>
+                        </div>
+                        <div class="col-md-2">{{spec.spec_amount}}</div>
+                        <div class="col-md-2">NT$ {{spec.spec_unit_price}}</div>
+                        <div class="col-md-2">NT$ {{spec.spec_amount*(spec.spec_unit_price)}}</div>
+                        <div class="col-md-2">{{displayState(spec.stateText)}}</div>
+                        <div class="col-md-12"><hr class="order-hr-spec" style="width: 100%;"></div>
+                    </div>
+                    <div class=" text-right">
+                        <div class="col-md-10 col-xs-6">
+                            <p>小計金額</p>
+                            <p>折價券</p>
+                            <p>購物金折抵</p>
+                            <p><span style="color:gray;">(配送運費{{orderPreview.fare}}元，滿{{fareList.target_amount}}元免運)&nbsp;&nbsp;&nbsp;</span>運費</p>
+                        </div>
+                        <div class="col-md-2 col-xs-6">
+                            <p>NT$ {{orders.product_total_price}}</p>
+                            <p>NT$ 0</p>
+                            <p>NT$ 0</p>
+                            <p>NT$ {{orders.fare}}</p>
+                        </div>
+                        <hr class="shoppingcart-hrtwo">
+                        <div class="col-md-10 col-xs-9">
+                            <p style="margin-top: 12px;">實付金額</p>
+                        </div>
+                        <div class="col-md-2 col-xs-3">
+                            <p>NT$ <span style="color:red;font-size:22px;">{{orders.final_total_price}}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 購買資料PC -->
+        <div class="col-md-12 visible-md visible-lg">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="td-name"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> 
+                        購買資料
+                    </div>
+                    <table class="table order-icon-left">
+                        <tr>
+                            <td>訂購人:{{orders.buyer_name}}</td>
+                            <td>付款方式: {{displayPayType(orders.payment_type)}}</td>
+                        </tr>
+                        <tr>
+                            <td>連絡電話: {{orders.buyer_phone_number}}</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- 收件人PC -->
+        <div class="col-md-12 visible-md visible-lg">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="td-name"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> 
+                        收件人資料與發票資料
+                    </div>
+                    <table class="table order-icon-left">
+                        <tr>
+                            <td>收貨人: {{orders.receiver_name}}</td>
+                            <td>收貨地址: {{orders.receiver_address}}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>出貨日: {{orders.delivery_datetime}}</td>
+                            <td>配送單位: {{orders.delivery_channel}}</td>
+                            <td>物流單號: {{orders.delivery_number}}</td>
+                        </tr>
+                        <tr>
+                            <td>發票類型: {{displayInventory(orders.inventory_process)}}</td>
+                            <td>發票號碼: {{}}</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- 付款方式與寄送資料PHONE -->
+        <div class="col-xs-12 visible-sm visible-xs">
+            <div class="panel panel-default">
+                <div class="panel-body del-pad">
+                    <div class="col-xs-12 phone-title-t">付款方式與寄送資料</div>
+                    <table class="table ph-table">
+                        <tr>
+                            <td>狀態</td>
+                            <td>{{displayState(orders.stateText)}}</td>
+                        </tr>
+                        <tr>
+                            <td>付款方式</td>
+                            <td>{{displayPayType(orders.payment_type)}}</td>
+                        </tr>
+                        <tr>
+                            <td>收貨人</td>
+                            <td>{{orders.receiver_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>手機號碼</td>
+                            <td>{{orders.receiver_phone_number}}</td>
+                        </tr>
+                        <tr>
+                            <td>收貨地址</td>
+                            <td>{{orders.receiver_address}}</td>
+                        </tr>
+                        <tr>
+                            <td>出貨日</td>
+                            <td>{{orders.delivery_datetime}}</td>
+                        </tr>
+                        <tr>
+                            <td>配送單位</td>
+                            <td>{{orders.delivery_channel}}</td>
+                        </tr>
+                        <tr>
+                            <td>物流單號</td>
+                            <td>{{orders.delivery_number}}</td>
+                        </tr>
+                        <tr>
+                            <td>發票號碼</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- 注意事項 -->
+        <div class="col-md-12 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body del-pad">
+                    <div class="td-name visible-md visible-lg" style="padding: 15px"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> 注意事項
+                    </div>
+                    <div class="col-xs-12 visible-sm visible-xs phone-title-t">注意事項</div>
+                    <div class="col-xs-12 order-icon-left">    
+                        <hr class="order-hr visible-md visible-lg" style=" margin-top: -15px;">
+                        <p>※若商品已過猶豫期，則無法線上申請銷退。</p>
+                        <p>※商品若要申請退換貨，請保持完整性（主商品及贈品），若有缺件、毀損或已使用過等個人因素，天GO將保留退換貨與否之權</p>
+                        <p>※提醒您：天GO不會主動電話要求您變更ATM帳號或更改付款方式，請您務必小心謹慎！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,144 @@
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="page-header" style="font-family:微軟正黑體; font-weight:500">活動資訊</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="home">
+                    <font size="5">搜尋</font>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-7">
+                        <!--<label class="col-md-12">輸入搜尋區間-->
+                        <!--</label>-->
+                        <form class="form-inline" role="form">
+                            <!--<div class="form-group col-md-12">-->
+                                <!--<span>活動開始時間:</span>-->
+                                <!--<div class="input-group">-->
+                                    <!--<label class="sr-only"></label>-->
+                                    <!--<datetime-picker instance="startDateOpen" idname="'startDateOpen'" datetype="'date'"></datetime-picker>-->
+                                <!--</div><span>-->
+                                <!--至  -->
+                                <!--</span>-->
+                                <!--<div class="input-group">-->
+                                    <!--<label class="sr-only"></label>-->
+                                    <!--<datetime-picker instance="startDateClose" idname="'startDateClose'" datetype="'date'"></datetime-picker>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group col-md-12">-->
+                                <!--<br>-->
+                                <!--<span>活動結束時間:</span>-->
+                                <!--<div class="input-group">-->
+                                    <!--<label class="sr-only"></label>-->
+                                    <!--<datetime-picker instance="endDateOpen" idname="'endDateOpen'" datetype="'date'"></datetime-picker>-->
+                                <!--</div><span>-->
+                                <!--至  -->
+                                <!--</span>-->
+                                <!--<div class="input-group">-->
+                                    <!--<label class="sr-only"></label>-->
+                                    <!--<datetime-picker instance="endDateClose" idname="'endDateClose'" datetype="'date'"></datetime-picker>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                            <!-- page's config-->
+                            <div class="form-group col-md-12">
+                                <br>
+                                <span>顯示的資料筆數:</span>
+                                <select class="form-control" ng-model="pageSize">
+                                    <option value="10" selected>10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="40">40</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </div>
+                            <!-- page's config -->
+
+                        </form>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label>輸入關鍵字</label>
+                            <input class="form-control" ng-model="search.keyword" type="text" placeholder="活動名稱,商品名稱,備註..." />
+                            <br>
+                            <!--<label>活動狀態</label>-->
+                            <!--<br>-->
+                            <!--<div class="btn-group">-->
+                                <!--<button type="button" class="btn btn-default">{{selectedItem.text}}</button>-->
+                                <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">-->
+                                    <!--<span class="caret"></span>-->
+                                <!--</button>-->
+                                <!--<ul class="dropdown-menu" role="menu" style="padding:0px;">-->
+                                    <!--<div ng-repeat="item in activityStatus.list">-->
+                                        <!--<li align="center" style="height:33px;">-->
+                                            <!--<button type="button" style="width:100%;" class="btn btn-default" ng-click="onStateSelectorChanged(item)">-->
+                                                <!--{{item.text}}-->
+                                            <!--</button>-->
+                                        <!--</li>-->
+                                    <!--</div>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                            <div class="col-md-12 text-right">
+                                <button ng-click="defaultSearch()" type="button" class="btn btn-defult"><span class="glyphicon glyphicon-cancel" aria-hidden="true"></span> 清除搜尋資料</button>
+                                <button ng-click="searchButtonOnClick()" type="button" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <br> -->
+    <div class="panel panel-default" id="page">
+        <div class="panel-heading" font size="5">
+            <font size="5">檢視已建立活動資訊</font>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <sb-smart-table instance="table"></sb-smart-table>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <button class="btn col-md-11" ng-click="selectedAll()">
+                        全選
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn col-md-11" ng-click="cancelAll()">
+                        全取消
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn col-md-11" ng-click="download.excel()">
+                        Excel下載
+                        <i class="fa fa-cloud-download"></i>
+                    </button>
+                </div>
+                <!--<div class="col-md-2">-->
+                    <!--<button class="btn col-md-11" ng-click="changeState()">-->
+                        <!--改變狀態-->
+                        <!--<i class="glyphicon glyphicon-cog"></i>-->
+                    <!--</button>-->
+                <!--</div>-->
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div  ng-repeat="button in exportButtons" class="col-md-2">
+                        <button class="btn col-md-11" ng-click="button.click()">
+                            {{button.text}}
+                            <i class="fa fa-{{button.icon}}"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<sb-modal instance="modal"></sb-modal>
+<sb-alert instance="alert"></sb-alert>
+

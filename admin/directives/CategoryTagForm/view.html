@@ -1,0 +1,36 @@
+<div class="row">
+		
+		<div class="col-md-6">
+			<div class="form-inline">
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon" id="sizing-addon1">中文</span>
+					<input type="text" class="form-control" ng-model="chinese_name" placeholder="中文標籤" aria-describedby="sizing-addon1">
+				</div>
+				<button class="lg-btn btn" ng-click="save('chinese_name')">存檔</button>
+                <button class="lg-btn btn" ng-click="insertForm('subOne')">新增標籤</button>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-inline">
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon" id="sizing-addon1">英文</span>
+					<input type="text" class="form-control" ng-model="english_name" placeholder="中文標籤" aria-describedby="sizing-addon1">
+				</div>
+				<button class="lg-btn btn" ng-click="save('english_name')">存檔</button>
+                <button class="lg-btn btn" ng-click="insertForm('subTwo')">新增標籤</button>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<sb-smart-table instance="subTagOne"></sb-smart-table>
+		</div>
+		<div class="col-md-6">
+			<sb-smart-table instance="subTagTwo"></sb-smart-table>
+		</div>
+
+		<div class="col-md-12">
+			<sb-upload class="col-lg-1" instance="upload"></sb-upload>
+			<img width="100%" src="{{tagImage}}">
+		</div>
+
+	</div>
+	<sb-modal instance="modal"></sb-modal>

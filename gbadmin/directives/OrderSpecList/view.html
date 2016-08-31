@@ -1,0 +1,13 @@
+<div class="col-md-12">
+    <!-- search bar-->
+    <div class="input-group">
+        <input  ng-model="keyword" type="text" class="form-control" placeholder="產品名稱, 規格名稱, 品號" ng-change="onSearchKeyword()" />
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+			</span>
+    </div>
+    <sb-smart-table instance="table"></sb-smart-table>
+</div>
+

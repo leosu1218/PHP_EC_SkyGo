@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-xs-12 col_style">
+
+    <div class="row">
+      <div class="col-xs-6 panel panel-info">
+        <div class="panel-heading panel_heading_style">
+        <label class="text_style">商品分類權限</label>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+
+          <sb-tree instance="tree"></sb-tree>
+        </div>
+      </div>
+      <div class="col-xs-6 panel panel-info">
+        <div class="panel-heading panel_heading_style">
+        <label class="text_style">團購主擁有的商品分類權限</label>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+
+          <div class="row">
+            <div ng-repeat="item in list">
+              <div class="col-xs-12">
+
+                <div class="alert alert-warning" style="padding:3px;">
+                  {{item.id}}:{{item.name}}
+                  <button type="button" ng-click="remove(item)" class="close">×</button>
+                </div>
+
+              </div>          
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

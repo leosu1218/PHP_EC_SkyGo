@@ -1,0 +1,63 @@
+<div id="page-wrapper">
+
+	<div class="row">
+        <div class="col-lg-12">
+        	<strong>
+            	<h2 class="page-header" style="font-family:微軟正黑體; font-weight:500">系統設定</h2>
+            </strong>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="row">
+                    <label class="text_style col-lg-3">物流配送方案</label>
+                    <div class="col-lg-8"></div>
+                    <div class="col-lg-1">
+                        <button class="btn btn-default" ng-click="fareAdd()">新增</button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <sb-smart-table instance="fareTable"></sb-smart-table>
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="row">
+                    <label class="text_style col-lg-3">配送方案</label>
+                    <div class="col-lg-8"></div>
+                    <div class="col-lg-1">
+                        <button class="btn btn-default" ng-click="logisticsAdd()">新增</button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <sb-smart-table instance="logisticsTable"></sb-smart-table>
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="row">
+                    <label class="text_style col-lg-3">商品事件 信箱通知</label>
+                    <div class="col-lg-8"></div>
+                    <div class="col-lg-1">
+                        <button class="btn btn-default" ng-click="productEventAdd()">新增</button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <sb-smart-table instance="productEventTable"></sb-smart-table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<sb-modal instance="modal"></sb-modal>

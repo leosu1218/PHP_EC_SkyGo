@@ -1,0 +1,101 @@
+
+<div class="container shopping-padding">
+    <!-- 商品資訊 PC -->
+    <div class="row shopping-del-pad hidden-xs hidden-sm">
+        <div class="col-md-12" style="margin-top: 25px;">
+            <div class="col-md-5 col-xs-12" id="shoppingcart-top">商品資訊</div>
+            <div class="col-md-7 hidden-xs hidden-sm text-center" style="letter-spacing: 5px;">
+                <div class="col-md-2 col-xs-2 shoppingcart-topdet">數量</div>
+                <div class="col-md-3 col-xs-3 shoppingcart-topdet">單價</div>
+                <div class="col-md-3 col-xs-3 shoppingcart-topdet">小計</div>
+                <div class="col-md-2 col-xs-2 shoppingcart-topdet">刪除</div>
+                <div class="col-md-2 col-xs-2 shoppingcart-topdet">重量</div>
+            </div>
+        </div>
+        <hr class="hidden-xs hidden-sm shoppingcart-hr">
+    </div>
+
+    <!-- Product items PC -->
+    <div ng-repeat="spec in orderPreview.spec" class="hidden-xs hidden-sm">
+        <div class="row shopping-del-pad">
+            <div class="col-md-5 col-xs-12 detail-letter">
+                <div class="col-md-4 col-xs-4">
+                    <img src="/upload/image/{{spec.cover_photo}}">
+                </div>
+                <div class="col-md-8 col-xs-8 img-detail">
+                    <p>{{spec.product_name}}</p>
+                    <p>{{spec.spec_serial}}</p>
+                    <p>規格:{{spec.spec_name}}</p>
+                    <p ng-show=" (spec.discount_type=='relation_product') " style="color:red;">套用加價購優惠</p>
+                </div>
+            </div>
+            <div class="col-xs-12 hidden-md hidden-lg text-center detail-letter-two">
+                <div class="col-md-2 col-xs-2">數量</div>
+                <div class="col-md-3 col-xs-3">單價</div>
+                <div class="col-md-3 col-xs-3">小計</div>
+                <div class="col-md-2 col-xs-2">刪除</div>
+                <div class="col-md-2 col-xs-2">重量</div>
+            </div>
+            <div class="col-md-7 col-xs-12 text-center detail-letter-two">
+                <div class="col-md-2 col-xs-2">
+                    <select ng-model="spec.spec_amount" ng-change="changeSpec()" ng-disabled="!step[0]">
+                        <option value="{{i}}" ng-repeat="i in optionCount(spec.can_sale_inventory)">{{i}}</option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-xs-3">NT$ {{spec.unit_price + spec.discount}}</div>
+                <div class="col-md-3 col-xs-3">NT$ {{spec.spec_amount*(spec.unit_price + spec.discount)}}</div>
+                <div class="col-md-2 col-xs-2">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteSpec($index)"></span>
+                </div>
+                <div class="col-md-2 col-xs-2">{{spec.weight}} g</div>
+            </div>
+        </div>
+
+        <hr class="row  shoppingcart-hr">
+    </div>
+
+    <!-- Product items Phone -->
+    <div class="row hidden-lg hidden-md">
+        <div class="col-xs-12 del-pad">
+            <h4>購物車明細</h4>
+            <hr style="border-color: #dcdcdc;">    
+        </div>       
+        <div class="col-xs-12 del-pad shopping-phone-item" ng-repeat="spec in orderPreview.spec">
+            <div class="col-xs-3">
+                <img src="/upload/image/{{spec.cover_photo}}" style="width: 100%;padding-right: 15px;">
+            </div>
+            <div class="col-xs-5">
+                <h5 style="font-weight: 800;">{{spec.product_name}}</h5>
+                <h6>規格: {{spec.spec_name}}</h6>
+            </div>
+            <div class="col-xs-3 text-center">
+                <select style="margin-top: 5px;" ng-model="spec.spec_amount" ng-change="changeSpec()" ng-disabled="!step[0]">
+                    <option value="{{i}}" ng-repeat="i in optionCount(spec.can_sale_inventory)">{{i}}</option>
+                </select>
+                <p style="margin-top: 5px;">NT$ 
+                    <span style="color: red;font-size: 18px;">{{spec.spec_amount*(spec.unit_price + spec.discount)}}</span>
+                </p>
+            </div>
+            <div class="col-xs-1 glyphicon-trash-style" style="margin-top: 25px;">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteSpec($index)"></span>
+            </div>
+            <hr class="col-xs-12" style="border-color: #dcdcdc;">
+        </div>
+    </div>
+
+    <!-- footer	 -->
+    <div class="row col-md-12 text-center" style="padding-bottom: 80px;" ng-show="step[0]">
+        <h4>小計金額(共 {{orderPreview.spec.length}} 件)</h4>
+        <h4 style="padding-bottom: 30px;">NT$ 
+            <span style="color: red;">{{orderPreview.product_total_price}}</span>
+        </h4>
+        <div class="col-md-6 col-xs-6 text-right">
+            <div id="prev-bgcolor" ng-click="returnHome()"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true" style="top:3px;"></span>  繼續購物</div>
+        </div>
+        <div class="col-md-6 col-xs-6 text-left" ng-click="next('1')">
+            <div id="next-bgcolor">下一步  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true" style="top:3px;"></span></div>
+        </div>
+    </div>
+
+    <sb-alert instance="alert"></sb-alert>
+</div>

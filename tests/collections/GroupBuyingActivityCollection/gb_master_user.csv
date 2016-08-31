@@ -1,0 +1,3 @@
+"id","name","email","account","hash","salt","bank_account","bank_code","bank_name","bank_account_name","create_date","status","creator_id","editor_id","edit_date"
+"1","陳奕瑞","chen.cyr@109life.com","master01","136824c0f885a5444f0af781df1bcceaee058c35","2w1wD","0796664431222","006","第一銀行","陳奕瑞","2015-07-02 00:00:00","1","1","1","0000-00-00 00:00:00"
+"3","簡妤倢","jai@gmail.com","jaichien","47a86bc7e30a717d02bb0df1751d952e7209bfd2","u6Z0b","0123456789","700","中華郵政","簡妤倢","2015-11-17 07:43:19","1","1","1","2015-11-17 07:43:19"

@@ -1,0 +1,195 @@
+<div class="container" ng-app="">
+    <div class="row hidden-xs hidden-sm">
+        <div class="col-md-12" style="padding-left: 15px; padding-bottom: 15px;">
+            <p class="col-md-6" style="padding-left: 0px;">HOME <img src="/images/arrow.png"> 會員中心/訂單查詢</p>
+        </div>
+    </div>
+
+    <div class="row person-top-background visible-xs visible-sm">
+        <div class="col-xs-6">
+                會員中心/訂單查詢
+        </div>
+        <div class="col-xs-6 text-right">
+            <a href="" ng-click="showLogout()" class="logout-text">
+                登出
+            </a>
+        </div>
+    </div>
+
+    <div class="row order-pad visible-xs visible-sm">
+        <div class="col-md-12">
+            <h5 class="text-right" style="padding-top:15px;">*僅保留90天內的訂單資料提供查詢</h5>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-2">
+            <member idname="'order'" class="visible-lg visible-md"></member>
+        </div>
+        <div class="col-md-10">
+            <div class="col-md-12" ng-repeat="order in orders">
+                <div class="panel panel-default">
+                    <div class="panel-heading order-heading">
+                        <p>訂購日: {{order.create_datetime.substr(0,10)}}</p>
+                        <p id="padLeft">訂單編號: {{order.serial}}</p>
+                        <p id="orderStuts">訂單狀態: {{displayState(order.stateText)}}</p>
+                    </div>
+                    <table class="table table-bordered">
+                        <tr class="panel-body order-body col-md-12 col-xs-12" ng-repeat="spec in order.spec.records">
+                            <td class="col-md-2 col-xs-3 text-center order-table-img">
+                                <img src="upload\image\{{spec.cover_photo_img}}">
+                            </td>
+                            <td class="col-md-9 col-xs-8">
+                                <h4>{{spec.product_name}}</h4>
+                                <span>{{spec.spec_name}}</span>
+                            </td>
+                            <td class="col-md-1 col-xs-1">
+                                <p>{{spec.spec_amount}}</p>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="panel-footer order-footer">
+                        <span style="float: right;">實付額: NT${{order.final_total_price}}</span>
+                        <a href="#!/searchorder/{{order.serial}}/{{order.id}}">訂單明細</a>
+                        <!-- <a href="" class="pad-left">詢問客服</a> -->
+                        <!-- <a class="pad-left" ng-click="returnAlert(order.serial)" ng-show="returnConfirm(order)">
+                            申請退貨
+                        </a>
+                        <a class="pad-left" ng-click="applyAlert(order.serial)" ng-show="returnApply(order)">
+                            取消訂單
+                        </a> -->
+                        <a class="pad-left cancel-order-pad" href="" data-toggle="modal" data-target="#returnApply" ng-show="returnApply(order)" ng-click="checkstatus(order.state,order)">
+                            取消訂單
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <sky-go-pagination instance="pagination"></sky-go-pagination>
+    <sb-alert instance="alert"></sb-alert>
+    <user-login instance="loginViewShow"></user-login>
+
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="returnApply" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header return-apply-modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">訂單取消資訊</h4>
+            </div>
+            <div class="modal-body return-apply-modal-body">
+            <!-- 第一層:填寫訂單資訊 -->
+                <div ng-show="orderInformation">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td class="modal-body-bg">
+                                <p class="modal-body-name">取消原因<spam class="red">*</spam></p>
+                            </td>
+                            <td>
+                                <select class="form-control" ng-model="selectReason">
+                                    <option value="商品規格不符">商品規格不符</option>
+                                    <option value="不想等/等太久">不想等/等太久</option>
+                                    <option value="價格比別家貴">價格比別家貴</option>
+                                    <option value="重複購買">重複購買</option>
+                                    <option value="我想改買其他東西">我想改買其他東西</option>
+                                    <option value="接收時間無法配合">接收時間無法配合</option>
+                                    <option value="衝動購買">衝動購買</option>
+                                    <option value="我要改用其他付款方式">我要改用其他付款方式</option>
+                                    <option value="其他">其他</option>
+                                </select>
+                                <span class="slelctNull" ng-hide="selectReasonNull">未選擇取消原因</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="modal-body-bg">
+                                <p class="modal-body-name">取消原因描述</p>
+                            </td>
+                            <td>
+                                <textarea class="form-control" rows="4" maxLength="40" ng-model="messageDetail"></textarea>
+                                <p class="text-right">最多輸入<span class="red">40</span>字</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            <!-- 第二層:填寫銀行帳戶 -->
+                <div ng-show="bankAccount">
+                    <div class="bank-title">   
+                        <p>親愛的{{eachOrder.buyer_name}}&nbsp;&nbsp;您好 :</p>
+                        <p>請您務必將退款資料填寫齊全，以便我們後續為您申請退款作業哦!</p>
+                    </div>
+                    <div class="bank-title-bg">
+                        <p>付款方式: {{displayPayType(eachOrder.payment_type)}}<span class="bank-return-pay">訂單金額: NT${{eachOrder.final_total_price}}</span></p>
+                    </div>
+                    <table class="table table-bordered bank-table">
+                        <tr>
+                            <td class="modal-body-bg">
+                                <p class="modal-body-name">銀行</p>
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" ng-model="bankName" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="modal-body-bg">
+                                <p class="modal-body-name">銀行分行</p>
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" ng-model="bankBranches" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="modal-body-bg">
+                                <p class="modal-body-name">帳戶號碼</p>
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" ng-model="bankAccountNumber" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="modal-body-bg">
+                                <p class="modal-body-name">戶名</p>
+                            </td>
+                            <td>
+                                <input class="form-control" type="text" ng-model="bankUsername" required/>
+                            </td>
+                        </tr>
+                    </table>
+                    <p class="slelctNull text-center" ng-hide="informationNot">資料未填齊全</p>
+                    <div class="bank-title-footer">
+                        <p>• 非提供第一銀行帳戶者,將需自行吸匯費。</p>
+                        <p>• 請您務必提供完整的退款資料,以便我們將為您匯入所提供的帳戶,預計 14 個工作天內將您的退款退還。</p>
+                        <p>• 當退款完成時,系統也會發送退款完成通知信通知您。</p>
+                    </div>
+                </div>
+            <!-- 第三層之一:未付款取消 -->
+                <div ng-hide="applyShow" ng-show="unpaidApplySuccess">
+                    <h4 class="text-center">確定取消此筆訂單</h4>
+                    <p class="apply-success-bg">本次訂購尚未付款，不須退款</p>
+                </div>
+            <!-- 第三層之二:已付款取消 -->
+                <div ng-show="paidApplySuccess">
+                    <h4 class="text-center">訂單取消申請，已送出!!</h4>
+                    <p class="apply-success-bg">您已付款的訂單已處理中，待審核通過後，將於14個工作天內退款給您!</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning btn-suc" ng-click="nextApply()" ng-show="orderInformation">下一步</button>
+                <button type="button" class="btn btn-default" ng-click="reloadMessage()" ng-show="orderInformation">重填</button>
+                <button type="button" class="btn btn-warning btn-suc" ng-click="deliverApply()" ng-show="bankAccount">確認送出</button>
+                <button type="button" class="btn btn-default" ng-click="reloadInput()" ng-show="bankAccount">重填</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-hide="serialZero" ng-click="addSeriaClose()">回訂單查詢</button>
+                <button type="button" class="btn btn-default" ng-show="serialZero" data-dismiss="modal" ng-click="addSeriaZero(eachOrder)">確定</button>
+            </div>
+        </div>
+    </div>
+</div>
+

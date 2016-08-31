@@ -1,0 +1,6 @@
+<div class="product-left-list">
+    <div ng-repeat="tegSub1List in tegSub1Lists" class="{{selectCss(tegSub1List.select)}}"><a href="" ng-click ="onTagClick(tegSub1Lists, tegSub1List)"><h4 class="product-left">{{tegSub1List.name}}</h4></a></div>
+    <br><br>
+    <div ng-repeat="tegSub2List in tegSub2Lists" class="{{selectCss(tegSub2List.select)}}"><a href="" ng-click ="onTagClick(tegSub2Lists, tegSub2List)"><h4 class="product-left">{{tegSub2List.name}}</h4></a></div>
+</div>
+<sb-alert instance="alert"></sb-alert>

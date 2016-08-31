@@ -1,0 +1,28 @@
+<div class="col-md-12">
+	
+	<div class="col-md-6 left">
+	</div>
+
+	<div class="col-md-6 right">
+		<nav>
+		  <ul class="pagination">
+		    <li ng-show="showPreviousChapter">
+		      <a href="" aria-label="Previous" ng-click="previousClickHandler(pageNo)">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+
+		    <li ng-repeat="page in pages" class="{{page.active}}">
+		    	<a href="" ng-click="pageClickHandler(page)">{{page.number}}</a>
+		    </li>    
+		    
+		    <li ng-show="showNextChapter">
+		      <a href="" aria-label="Next" ng-click="nextClickHandler(pageNo)">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
+	</div>
+
+</div>

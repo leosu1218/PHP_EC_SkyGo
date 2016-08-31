@@ -1,0 +1,81 @@
+<div class="container shopping-padding" ng-show="step[1]||step[2]">
+    <div class="row shopping-graybg hidden-xs hidden-sm">
+        <span>購物金: 0 元</span>
+    </div>
+
+    <div class="row" ng-show="step[1]">
+        <div class="row" style="margin: 15px auto;">
+            <div class="col-md-6 col-xs-4" style="padding: 0px;">
+            <!-- 運送方式
+            <span>
+				<select ng-model="order.fareId" ng-change="onFareChanged()">
+                    <option ng-repeat="fare in fareList" value="{{fare.id}}">{{fare.type}} {{fare.amount}}元</option>
+                </select>
+			</span> -->
+            配送區域
+            <span>
+                <select>
+                    <option>台灣</option>
+                </select>
+            </span>
+            </div>
+
+            <div class="col-md-6 col-xs-8" style="padding-right: 0px;">
+            付款方式
+            <!-- <span>
+				<select ng-model="order.payType" ng-init="order.payType='neweb'">
+                    <option value="{{'neweb'}}">信用卡付款</option>
+                    <option value="{{'MMK'}}">超商代碼付款不取貨</option>
+                    <option value="{{'ATM'}}">ATM轉帳付款</option>
+                    <option value="{{'CS'}}">超商條碼列付款</option>
+                </select>
+			</span> -->
+            <span>
+                <select ng-model="farePayType.selectedOption" ng-options="displayPayType(item.pay_type) for item in farePayType track by item.pay_type">
+                </select>
+            </span>
+            </div>
+        </div>
+
+        <div class="hidden-xs hidden-sm">
+            <p>提醒您:</p>
+            <p><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>請務必填寫正確收件資訊(如收件人、收件地址)以免造成送貨失敗</p>
+            <p><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>付款方式：信用卡/ATM轉帳/WebATM/超商付款</p>
+        </div>
+        <hr class="shoppingcart-hr hidden-xs hidden-sm">
+    </div>
+
+    <div class="row text-right">
+        <div class="col-md-10 col-xs-9">
+            <p>金額</p>
+            <p>折價卷</p>
+            <p>購物金折抵</p>
+            <p><span style="color:gray;">(配送運費{{farePrice.amount}}元，滿{{farePrice.target_amount}}元免運)&nbsp;&nbsp;&nbsp;</span>運費</p>
+        </div>
+        <div class="col-md-2 col-xs-3">
+            <p>NT$ {{orderPreview.product_total_price}}</p>
+            <p>NT$ 0</p>
+            <p>NT$ 0</p>
+            <p>NT$ {{farePrice.fare}}</p>
+        </div>
+        <hr class="shoppingcart-hrtwo">
+    </div>
+    <div class="row text-right">
+        <div class="col-md-10 col-xs-9">
+            <p style="margin-top: 12px;">應付金額</p>
+        </div>
+        <div class="col-md-2 col-xs-3" style="padding-left: 0;">
+            <p>NT$<span style="color:red;font-size:26px;">{{totalPrice(orderPreview.product_total_price,farePrice.fare)}}</span></p>
+        </div>
+    </div>
+    <div class="row" ng-show="step[1]" style="padding-bottom: 80px;padding-top: 40px;">
+        <div class="col-md-6 col-xs-6 text-right">
+            <div id="prev-bgcolor" ng-click="next('0')"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true" style="top:3px;"></span>  回購買清單</div>
+        </div>
+        <div class="col-md-6 col-xs-6 text-left" ng-click="nextStep()">
+            <div id="next-bgcolor">下一步  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true" style="top:3px;"></span></div>
+        </div>
+    </div>
+
+    <sb-alert instance="alert"></sb-alert>
+</div>

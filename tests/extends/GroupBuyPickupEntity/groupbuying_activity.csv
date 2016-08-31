@@ -1,0 +1,2 @@
+"id", "name", "product_id", "master_id", "buy_max", "buy_min", "price", "start_date", "end_date", "state", "buyer_counter", "returner_counter", "note", "product_counter", "delivery_date", "request_statement_date", "response_statement_date", "close_date", "apply_charge_off_date"
+"2", "IPHONE熱賣會", "2", "1", "400", "20", "8800", "2015-11-05 00:00:00", "2015-11-15 00:00:00", "4", "1", "0", "", "0", "", "0000-00-00 00:00:00", "0000-00-00 00:00:00", "0000-00-00 00:00:00", "0000-00-00 00:00:00"

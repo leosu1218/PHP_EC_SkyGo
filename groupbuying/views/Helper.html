@@ -1,0 +1,43 @@
+<div>	
+	<nav class="navbar navbar-default navbar-static-top navbar-fixed-top" role="navigation" >
+	    <div class="container-fluid" style="padding-right:0px; padding-left:0px;">
+	        <div style="background-color:#f02864; margin-top:-20px; height:60px; ">
+	            <div style="height:90px;">
+	            <h4 style="color:white; text-align:center; padding:25px; "><strong>活動協助</strong></h4>  
+	            </div>    
+	        </div>	        
+	    </div>
+	</nav>
+
+	<div class="row" style="margin-top: 100px">
+		<div class="col-md-12">
+
+			<!-- panel -->
+			<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">退貨申請</h3>
+			  	</div>
+			  	<div class="panel-body">
+			  		<form ng-submit="requestReturn()">
+				  		<label for="explain">請留下您參加活動時所使用的個人資料，將會有專人為您服務。
+				  		</label>
+				    	
+				    	<div class="form-group">					    
+						    <input type="text" class="form-control" id="orderSerial" placeholder="購買通知信中的訂單編號" ng-model="returned.orderSerial" required>
+						</div>
+				  		<div class="form-group">					    
+						    <input type="text" class="form-control" id="phone" placeholder="當初填寫的電話號碼" ng-model="returned.phone" required>
+						</div>
+				    	<div class="form-group">					    
+						    <input type="email" class="form-control" id="email" placeholder="當初填寫的信箱" ng-model="returned.email" required>
+						</div>								
+						<button type="submit" class="btn btn-default">送出</button>
+					</form>
+				  </div>
+			  	</div>
+			</div>
+			<!-- panel-->
+
+		</div>
+	</div>
+</div>

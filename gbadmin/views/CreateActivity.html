@@ -1,0 +1,119 @@
+
+
+<form class="form-horizontal page" id="page-wrapper">
+
+    <div class="row">
+        <div class="col-sm-12">
+        	<strong>
+            	<h2 class="page-header" style="font-family:微軟正黑體; font-weight:500">建立您的團購活動</h2>
+            </strong>
+        </div>
+    </div>
+
+    <!-- product selector -->
+    <div class="row">   	
+		<div class="col-md-12">
+			<div class="panel panel-default">
+	            <div class="panel-heading">
+	                選擇活動商品
+	            </div>
+	            <!-- /.panel-heading -->
+	            <div class="panel-body">
+                    <wholesale-product-list instance="list" enable-select="false" api="api"></wholesale-product-list>
+	            </div>
+	            <!-- /.panel-body -->
+	        </div>	      
+		</div>	
+	</div>
+	<!-- product selector /-->
+
+    <!-- activity info -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    設定價格
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <div style="margin:0 5px">
+                            <div class="form-group">
+                                <label>*活動名稱</label>
+                                <input class="form-control" placeholder="請輸入團購名稱，例如：限時48小時! 德國LC鑄鐵鍋-絕版款!" ng-model="name" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label>*商品售價 (至少 {{selectedProduct.minPrice}} NTD)</label>
+                                <input class="form-control" placeholder="請輸入消費者支付的購買金額，例如：240" ng-model="price" type="text" />
+                                <label>每個稅前毛利 = {{parseInt(price, 10) - parseInt(selectedProduct.wholesalePrice, 10)}} 元</label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    設定活動進行時間
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <!-- date info -->
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div style="margin:0 5px">
+                                <div class="form-group">
+                                    <label>*開始日期 </label>
+                                    <input class="form-control" ng-model="startDate" type="date" ng-change="updateBetweenDays()"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>*開始時間 </label>
+                                    <input class="form-control" ng-model="startTime" type="time" ng-change="updateBetweenDays()"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="margin:0 5px">
+                                <div class="form-group">
+                                    <label>*結束日期 </label>
+                                    <input class="form-control" ng-model="endDate" type="date" ng-change="updateBetweenDays()"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>*結束時間</label>
+                                    <input class="form-control" ng-model="endTime" type="time" ng-change="updateBetweenDays()"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label>此商品的活動進行天數至少需要 {{selectedProduct.minDays}} 天，
+                            最多不能超過 {{selectedProduct.maxDays}} 天。</label>
+                        <label>您設定的活動進行天數一共 {{betweenDays}} 天。</label>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+    </div>
+	<!-- activity info /-->
+
+    <!-- create button group -->
+    <div class="row" style="padding-bottom: 20px">
+    	<div class="col-md-12">
+			<div class="btn-group " role="group" aria-label="...">
+			  <div class="btn-group" role="group">
+			    <button ng-click="create()" type="button" class="btn btn-primary">新增</button>
+			  </div>		  
+			  <div class="btn-group" role="group">
+			    <button ng-click="cancel()" type="button" class="btn btn-default">取消</button>
+			  </div>
+			</div>
+		</div>    
+    </div>
+    <!-- create button group /-->
+
+</form>
+<sb-alert instance="alert"></sb-alert>

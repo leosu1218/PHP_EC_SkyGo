@@ -1,0 +1,36 @@
+<div>
+    <!-- keyword search input -->
+    <div class="col-md-10">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for..." ng-change="reloadList()" ng-model="search.keyword">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="clear()">
+                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+
+    <!-- page size input -->
+    <div class="col-md-2">
+        <select class="form-control" ng-model="pageSize" ng-change="reloadList()">
+            <option value="10" selected>10 筆</option>
+            <option value="20">20 筆</option>
+            <option value="30">30 筆</option>
+            <option value="40">40 筆</option>
+            <option value="50">50 筆</option>
+            <option value="100">100 筆</option>
+            <option value="200">200 筆</option>
+            <option value="300">300 筆</option>
+            <option value="400">400 筆</option>
+            <option value="500">500 筆</option>
+            <option value="1000">1000 筆</option>
+            <option value="999999">不限制</option>
+        </select>
+    </div>
+
+    <!-- list table -->
+    <sb-smart-table instance="table"></sb-smart-table>
+    <sb-modal instance="modal"></sb-modal>
+</div>
+<sb-alert instance="alert"></sb-alert>

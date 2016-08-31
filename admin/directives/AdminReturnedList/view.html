@@ -1,0 +1,33 @@
+<div>
+    <unified-returned-list
+            instance="table" enable-select="true" search="fixedSearch" api="api">
+    </unified-returned-list>
+
+	<div class="row">
+    	<div class="col-md-2">
+    		<button class="btn col-md-11" ng-click="selectedAll()">
+		        全選
+		    </button>	
+    	</div>
+    	<div class="col-md-2">
+    		<button class="btn col-md-11" ng-click="cancelAll()">
+		        全取消
+		    </button>	
+    	</div>
+    	<div class="col-md-2">
+    		 <button class="btn col-md-11" ng-click="download.returned()">
+		        退貨單下載
+		        <i class="fa fa-cloud-download"></i>
+		    </button>
+    	</div>
+        <div class="col-md-2">
+            <button class="btn col-md-11" ng-click="changeState()">
+                改變狀態
+                <i class="glyphicon glyphicon-cog"></i>
+            </button>
+        </div>
+    </div>
+
+    <sb-alert instance="alert"></sb-alert>
+    <sb-modal instance="modal"></sb-modal>
+</div>

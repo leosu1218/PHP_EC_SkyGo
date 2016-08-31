@@ -1,0 +1,7 @@
+<div class="container-fluid" style="padding-top: 100px;">
+
+    <input type="button" class="btn btn-default" value="add" ng-click="addItem(items.length)"></input>
+    <input type="button" class="btn btn-default" value="clear" ng-click="clearAll()"></input>
+
+    <slick-slider instance="slider[$index]" ng-repeat="item in items" ></slick-slider>
+</div>

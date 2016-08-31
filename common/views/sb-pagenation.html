@@ -1,0 +1,26 @@
+    <div class="clearfix">
+        
+        <p class="pull-left" style="line-height: 70px;"> 
+          共計 {{textData.totalNumber}} 筆資料, 其中的 
+            {{textData.rangeTopNumber}}-{{textData.rangeButtomNumber}}
+          筆
+        </p>
+
+        <!-- pagenation -->
+        <nav class="pull-right">
+          <ul class="pagination">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li ng-repeat="value in pageData"><a href="{{value.path}}">{{value.index}}</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+    </div>

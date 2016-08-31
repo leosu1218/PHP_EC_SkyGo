@@ -1,0 +1,107 @@
+<div class="container shopping-padding" ng-show="step[2]" style="margin-top: 40px;">
+    <div class="row">
+        <p>訂單資料</p>
+        <hr class="shoppingcart-hr" style="margin-top:0px;">
+
+        <!-- buy first -->
+        <div ng-show="(oauth.result != 'success')">
+            <div class="col-xs-12">
+                <div class="col-md-2 col-xs-4 deletepad">
+                    <p class="infomation-pad"><span class="star">＊</span>Email信箱</p>
+                    <p class="visible-xs order-input" ng-style="leftOrderPad"></p>
+                    <p class="infomation-pad"><span class="star">＊</span>訂購人</p>
+                    <p class="infomation-pad">電話號碼</p>
+                    <p class="visible-xs order-input"></p>
+                    <p class="infomation-pad"><span class="star">＊</span>設定密碼</p>
+                    <p class="infomation-pad"><span class="star">＊</span>密碼確認</p>
+                </div>
+                <div class="col-md-10 col-xs-8 deletepad">
+                    <div class="infomation-pad order-form-input">
+                        <input type="email" id="checkMail" ng-model="register.email" Placeholder="example@109life.com" >
+                        <span class="hidden-xs">即是下次登入帳號
+                            <span class="bg-success order-bg order-bg-left" ng-show="mailSuccess">信箱可以使用</span>
+                            <span class="bg-danger order-bg order-bg-left" ng-show="mailFail">信箱已被註冊</span>
+                            <span class="bg-danger order-bg order-bg-left" ng-show="mailNull">未輸入信箱</span>
+                        </span>
+                        <p class="visible-xs" style="margin: 0px;">即是下次登入帳號</p>
+                        <span class="bg-success order-bg visible-xs" ng-show="mailSuccess">信箱可以使用</span>
+                        <span class="bg-danger order-bg visible-xs" ng-show="mailFail">信箱已被註冊</span>
+                        <span class="bg-danger order-bg visible-xs" ng-show="mailNull">未輸入信箱</span>
+                    </div>
+                    <div class="infomation-pad order-form-input">
+                        <input type="text" ng-model="register.name" Placeholder="請填寫真實姓名" >
+                    </div>
+                    <div class="infomation-pad order-form-input">
+                        <input type="text" ng-model="register.phone" Placeholder="範例:0912123456" >
+                        <span class="hidden-xs">選填</span><p class="visible-xs" style="margin: 0px;">選填</p>
+                    </div>
+                    <div class="infomation-pad order-form-input"><input type="password" ng-model="register.password" ></div>
+                    <div class="infomation-pad order-form-input"><input type="password" ng-model="register.checkPassword" ></div>
+                </div>
+            </div>
+            <div class="col-md-12 col-xs-12" style="margin-bottom: 10px;">
+                <input type="checkbox" ng-model="agreePolicy">我同意接受109天GO<a ng-click="provisionShow()" style="cursor: pointer;">服務條款</a>
+            </div>
+            <hr class="shoppingcart-hr" style="margin-top:10px;">
+        </div>
+
+        <!-- receiver info -->
+        <div class="col-xs-12">
+            <div class="col-md-12 col-xs-12" style="margin-bottom: 10px;">
+                <input type="checkbox" ng-model="Purchaser" ng-click="usePurchaser()">同訂購人資料
+            </div>
+            <div class="col-md-2 col-xs-4 deletepad">
+                <p class="infomation-pad"><span class="star">＊</span>收件人姓名</p>
+                <p class="infomation-pad"><span class="star">＊</span>手機號碼</p>
+                <p class="infomation-pad"><span class="star">＊</span>收貨地址</p>
+                <p class="infomation-pad">備註</p>
+            </div>
+            <div class="col-md-10 col-xs-8 deletepad">
+                <div class="infomation-pad order-form-input"><input type="text" ng-model="order.name" ></div>
+                <div class="infomation-pad order-form-input">
+                    <input type="text" ng-model="order.phone"Placeholder="範例:0912123456" >
+                </div>
+                <div class="infomation-pad order-form-input col-md-12 col-xs-12 deletepad"><input type="text" ng-model="order.address" class="col-md-5 col-xs-12 deletepad" ></div>
+                <div class="infomation-pad order-form-input col-md-12 col-xs-12 deletepad"><textarea type="text" ng-model="order.consumerRemark" rows="3" class="col-md-5 col-xs-12 deletepad"></textarea></div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <p>發票資訊</p>
+        <hr class="shoppingcart-hr" style="margin-top:0px;">
+
+        <div class="form-group" style="margin: 5px 0px;">
+            <label class="radio-inline">
+                <input type="radio" name="invoice" id="invoice2" value="1" ng-model="order.inventoryProcess">捐贈發票
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="invoice" id="invoice1" value="2" ng-model="order.inventoryProcess">二聯式發票
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="invoice" id="invoice3" value="3" ng-model="order.inventoryProcess" >三聯式發票
+            </label>
+        </div>
+        <div ng-show="order.inventoryProcess == 3">
+            統編抬頭:<input type="text" ng-model="order.companyName"><br>
+            統一編號:<input type="text" ng-model="order.taxID">
+        </div>
+        <p style="margin-top: 10px;">※請注意！天GO保留接受訂單與否的權利</p>
+        <p><a href="#!/shoppingguide">*天GO購物須知*</a></p>
+    </div>
+
+    <div class="row" style="padding-bottom: 80px;padding-top: 40px;">
+        <div class="col-md-6 col-xs-6 text-right">
+            <div id="prev-bgcolor" ng-click="next('1')"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true" style="top:3px;"></span>重選付款方式</div>
+        </div>
+        <div class="col-md-6 col-xs-6 text-left" ng-click="nextStep()">
+            <div id="next-bgcolor">下一步  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true" style="top:3px;"></span></div>
+        </div>
+    </div>
+
+    <sb-alert instance="alert"></sb-alert>
+    <sb-alert instance="provision"></sb-alert>
+    <goto-pay-form instance="paymentConfirm"></goto-pay-form>
+    <user-login instance="loginView" brin="false"></user-login>
+</div>

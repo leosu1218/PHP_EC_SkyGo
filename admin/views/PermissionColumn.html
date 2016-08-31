@@ -1,0 +1,29 @@
+			<div class="panel panel-default" ng-repeat="permission in permissions">   
+                <div class="panel-heading">
+                    <i class="fa fa-{{permission.icon}} fa-fw"></i> {{permission.name}}
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="list-group">
+                        <a href="" class="list-group-item" ng-repeat="item in permission.items" ng-click="item.selected=!(item.selected)">
+                            <i class="fa fa-{{item.icon}} fa-fw"></i> {{item.name}}
+                            <span class="pull-right text-muted small">
+                            	<em>
+                            		<i ng-show="item.selected" class="fa fa-check fa-fw" style="color: #007C7C;"></i>
+                            		<i ng-show="!(item.selected)" class="fa fa-times fa-fw" style="color: #CC0000;"></i>
+                            	</em>	
+                            </span>
+                        </a>                      
+                    </div>
+                    <!-- /.list-group -->
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+					  <div class="btn-group" role="group">
+					    <button type="button" class="btn btn-default" ng-click="selectAll(permission.items, true)">選擇全部</button>
+					  </div>					 
+					  <div class="btn-group" role="group">
+					    <button type="button" class="btn btn-default" ng-click="selectAll(permission.items, false)">取消全部</button>
+					  </div>
+					</div>
+                </div>
+                <!-- /.panel-body -->
+            </div>

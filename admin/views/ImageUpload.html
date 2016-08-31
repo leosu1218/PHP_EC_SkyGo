@@ -1,0 +1,63 @@
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        {{titleText}}
+
+        <span class="btn btn-default btn-file">
+            {{addFileLabel}} <input type="file" file-upload>
+        </span>
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+
+        <style type="text/css">
+            .btn-file {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .btn-file input[type=file] {
+                position: absolute;
+                top: 0;
+                right: 0;
+                min-width: 100%;
+                min-height: 100%;
+                font-size: 100px;
+                text-align: right;
+                filter: alpha(opacity=0);
+                opacity: 0;
+                outline: none;
+                background: white;
+                cursor: inherit;
+                display: block;
+            }
+        </style>
+        <!-- <row-tag handler=handler delete-handler=delete number='4'></row-tag> -->
+        <div ng-repeat="data in showData">
+            <div class="row">
+                <div ng-repeat="file in data">
+
+                    <div class="col-lg-3">
+                        <div style="width:100%;">
+                            <div class="panel panel-default">
+                                <div class="panel-body" ng-click="selectCoverphto(file)">
+                                    <i class="fa fa-bookmark" ng-show="file.isShowCoverphtoMark"></i>
+                                    <image style="width:100%;" ng-src="{{file.currentSrc}}">
+                                </div>
+                                <ul class="panel-footer btn" ng-click="delete( file )" style="height:40px; width:100%; background-color:#FFFAFA;">
+                                    <span class="glyphicon glyphicon-remove" style="color:#FF8888;" aria-hidden="true"></span>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.panel-body -->
+
+</div>

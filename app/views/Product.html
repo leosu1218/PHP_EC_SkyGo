@@ -1,0 +1,221 @@
+<!-- pc -->
+<div class="hidden-xs hidden-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="padding-left: 15px; padding-bottom: 15px;">
+                <p class="col-md-6" style="padding-left: 0px;">
+                    HOME <img src="/images/arrow.png"> {{mainTag}} <img src="/images/arrow.png">{{product.name}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 hidden-xs hidden-sm">
+                <product-left-list api="apiUrl"></product-left-list>
+            </div>
+            <div class="col-md-9">
+                <div class="row text-right" style="padding: 15px 15px 5px 15px;">產品編號 : {{product.productId}}</div>
+
+                <div class="row">
+                    <div class="col-md-6 product-header-img">
+
+                        <div ng-show="showImageSlide">
+                            <div class="slider slider-for col-md-12">
+                            </div>
+                            <div class="slider slider-nav col-md-12">
+                            </div>
+                        </div>
+
+                        <div class="embed-responsive embed-responsive-4by3 youtube-video" ng-show="showVideo" id="inner"></div>
+
+                    </div>
+                    <div class="col-md-6 product-detail">
+                        <h4>{{product.name}}</h4>
+                        <div style="padding-top: 30px;padding-bottom: 40px;">
+                            <p compile="product.detail"></p>
+                        </div>
+                        <p style="color: #444;">市價 : <del>NT${{product.suggestPrice}}</del></p>
+                        <p>特價 : NT$ <span style="color: red;font-size: 22px;">{{product.price}}</span></p>
+                        <hr style="border-top: 1px solid gray;">
+                        <p></p>
+                        <div class="col-md-12 col-xs-12 product-input" ng-show="showBay">
+                            <div class="col-md-9 col-xs-12 product-input-in">
+                                <p>商品規格</p>
+                                <select class="form-control" ng-model="selectSpec">
+                                    <option ng-repeat="spec in product.spec.records | filter : filterInventory"  value="{{$index}}">{{spec.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-xs-12 product-input-in">
+                                <p>購買數量</p>
+                                <select ng-model="specAmount" class="form-control">
+                                    <option value="{{i}}" ng-repeat="i in optionCount(selectedSpec.can_sale_inventory)">{{i}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-xs-12" style="padding-top: 25px;" ng-show="showBay">
+                            <h4 class="text-center" style="cursor: pointer" ng-click="addToCart(specAmount, selectedSpec.item)">加入購物車 &nbsp;<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></h4>
+                        </div>
+                        <div class="col-md-12 text-center" ng-hide="showBay">
+                            <button type="button" class="btn btn-default btn-lg" disabled="disabled" style="background-color: #eee;">售完補貨中</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 product-center">
+                        <hr style="border-top: 1px solid gray;">
+                        <h5 class="text-center">PRODUCT  DETAILS</h5>
+                        <img ng-repeat="image in product.explainMaterials.records" src="upload/image/{{image.url}}">
+                        <div compile="product.explainText"></div>
+                    </div>
+                </div>
+                <div class="row" ng-show="(product.relationProducts.recordCount > 0)">
+                    <div class="col-md-12 product-add">
+                        <h4>推薦加購商品</h4>
+                        <hr>
+                        <h5>RECOMMENDED PRODUCTS</h5>
+                        <div class="col-md-3 col-xs-6">
+                            <div class="product-add-img">
+                                <img src="upload/image/{{product.relationProducts.records[0].coverPhoto}}">
+                                <h4 id="fontLength">{{product.relationProducts.records[0].productName}}</h4>
+                                <p>{{product.relationProducts.records[0].detail}}</p>
+                                <h4>
+                                <select class="selectpicker" ng-model="productSpe" style="width: 100%;">
+                                    <option value="">選擇</option>
+                                    <option ng-repeat="relationSpe in relationSpes"  value="{{relationSpe.id}}">{{relationSpe.name}}</option>
+                                </select>
+                            </h4>
+                                <h4 class="text-right">
+                                <span style="cursor: pointer;font-size: 18px;" ng-click="addRecommendToCart(relationSpes)">NT$ {{product.relationProducts.records[0].price}} 
+                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></span>
+                            </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="margin-top: 30px;margin-bottom: 30px;border-top: 1px solid gray;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- phone -->
+<div class="hidden-lg hidden-md">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 hidden-xs hidden-sm">
+                <product-left-list api="apiUrl"></product-left-list>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-6 product-header-img">
+
+                        <div ng-show="showImageSlide">
+                            <div class="slider slider-for col-md-12">
+                            </div>
+                            <div class="slider slider-nav col-md-12">
+                            </div>
+                        </div>
+
+                        <div class="embed-responsive embed-responsive-4by3 youtube-video" ng-show="showVideo" id="inner"></div>
+
+                    </div>
+                    <div class="col-md-6 product-detail">
+                        <h4>{{product.name}}</h4>
+                        <p style="color: #444;">市價 : <del>NT${{product.suggestPrice}}</del></p>
+                        <p>特價 : NT$ <span style="color: red;font-size: 22px;">{{product.price}}</span></p>
+                        <hr style="border-color: gray;margin-top: 0px;">
+                        <div class="col-md-12 col-xs-12 product-input" ng-show="showBay">
+                            <div class="col-md-9 col-xs-12 product-input-in">
+                                <p>商品規格</p>
+                                <select class="form-control" ng-model="selectSpec">
+                                    <option ng-repeat="spec in product.spec.records | filter : filterInventory"  value="{{$index}}">{{spec.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-xs-12 product-input-in">
+                                <p>購買數量</p>
+                                <select ng-model="specAmount" class="form-control">
+                                    <option value="{{i}}" ng-repeat="i in optionCount(selectedSpec.can_sale_inventory)">{{i}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <hr class="col-xs-12 product-hr-border" style="margin-bottom: 0px;"> 
+                        <p class="col-xs-12 del-pad" ng-bind-html="product.detail" style="margin-top: 10px;"></p>
+                        <hr class="col-xs-12 product-hr-border" style="margin-top: 0px;"> 
+                    </div>
+                </div>
+
+                <!-- <div class="row">
+                    <div class="col-md-12 product-center" style="margin-bottom: 20px;">
+                        <a href="#!/productpage/{{product.id}}">商品說明</a>
+                    </div>
+                </div> -->
+                <img ng-repeat="image in product.explainMaterials.records" src="upload/image/{{image.url}}" style="width: 100%;">
+                <div compile="product.explainText" class="bindHtmlDiv"></div>
+
+                <div class="row" style="margin-bottom: 30px;" ng-show="(product.relationProducts.recordCount > 0)">
+                    <div class="col-md-12">
+                        <hr  style="border-color: gray;">
+                        <h4 style="color: #0758cb;">推薦加購商品</h4>
+                        <div class="col-xs-12 add-product-border">
+                            <div class="col-xs-3 del-pad">
+                                <img src="upload/image/{{product.relationProducts.records[0].coverPhoto}}" style="width: 100%;">
+                            </div>
+                            <div class="col-xs-9">
+                                <h4 id="fontLength">{{product.relationProducts.records[0].productName}}</h4>
+                                <select class="selectpicker form-control" ng-model="productSpe" style="width: 100%;">
+                                    <option value="">選擇規格</option>
+                                    <option ng-repeat="relationSpe in relationSpes"  value="{{relationSpe.id}}">{{relationSpe.name}}</option>
+                                </select>
+                                <span class="product-add-button" ng-click="addRecommendToCart(relationSpes)">NT$ 
+                                    <span class="product-add-button-price">{{product.relationProducts.records[0].price}}</span> 
+                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row product-fixed-row">
+            <div class="col-xs-12 del-pad product-fixed">
+                <div class="col-xs-3 product-fixed-button" ng-show="showBay">
+                    <button type="button" class="btn btn-warning" style="background-color: #de6107;" ng-click="changeToCart(specAmount, selectedSpec.item)">立即購買</button>
+                </div>
+                <div class="col-xs-3 product-fixed-button" ng-show="showBay">
+                    <button type="button" class="btn btn-warning" style="color: #753700;" ng-click="addToCart(specAmount, selectedSpec.item)">加入購物車</button>
+                </div>
+                <div class="col-xs-3 product-fixed-button" style="right: -72%;" ng-hide="showBay">
+                    <button type="button" class="btn btn-default" disabled="disabled" style="background-color: #eee;">售完補貨中</button>
+                </div>
+            </div>
+        </div> -->
+        <!-- *************************************** -->
+        <div class="row product-fixed-row">
+            <div class="col-xs-12 product-fixed text-center footer-bar" style="padding-right: 0;padding-top: 2px;">
+                <div class="col-xs-2 del-pad">
+                    <a href="#!">
+                        <img src="images/home.png">
+                        <p>首頁</p>
+                    </a>
+                </div>
+                <div class="col-xs-2 del-pad">
+                    <a href="#!/shoppingcart">
+                        <img src="images/cart.png">
+                        <p>結帳({{cart.length}})</p>
+                    </a>
+                </div>
+                <div class="col-xs-4 del-pad product-fixed-button text-right" ng-show="showBay">
+                    <button type="button" class="btn btn-warning" style="background-color: #de6107;" ng-click="changeToCart(specAmount, selectedSpec.item)">立即購買</button>
+                </div>
+                <div class="col-xs-4 del-pad product-fixed-button" ng-show="showBay">
+                    <button type="button" class="btn btn-warning" style="color: #753700;" ng-click="addToCart(specAmount, selectedSpec.item)">加入購物車</button>
+                </div>
+                <div class="col-xs-offset-4 col-xs-4 del-pad product-fixed-button" ng-hide="showBay">
+                    <button type="button" class="btn btn-default" disabled="disabled" style="background-color: #eee;">售完補貨中</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<sb-alert instance="alert"></sb-alert>

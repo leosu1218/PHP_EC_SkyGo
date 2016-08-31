@@ -1,0 +1,2 @@
+"id", "order_id", "product_id", "spec_id", "unit_price", "total_price", "spec_amount", "other_cost", "cost_type", "fare", "fare_type", "discount", "discount_type", "activity_type", "activity_id"
+"1", "20", "2", "1", "8800", "8800", "2", "0", "normal", "0", "宅配", "0", "normal", "groupbuying", "2"

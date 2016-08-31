@@ -1,0 +1,172 @@
+<style type="text/css">
+
+	.mask {
+		position: fixed;
+	    z-index: 1031;
+	    background-color: black;
+	    width: 100%;
+	    height: 100%;
+	    opacity: 0.8;
+		top: 0px;
+    	left: 0px;
+	}
+
+	.mask img {
+		margin-top:20%;
+		width: 100%;
+	}
+
+</style>
+
+<div class="row">
+	
+
+	<div class="mask" ng-show="buyinfo.isExpire">
+		<img src="/images/expire.png">	
+	</div>
+
+	<div class="mask" ng-show="buyinfo.notStarted">	
+		<img src="/images/notstarted.png">	
+	</div>
+
+    <common-header instance="header"></common-header>
+
+    <div class="container-fluid group-home">
+        <div class="row col-sm-12" bgcolor="orange">
+
+            <div role="tabpanel">
+
+                <div class="tab-content" style="padding-right:0px; padding-left:0px;">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+
+                        <!-- slide images -->
+                        <div ng-non-bindable id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators"></ol>
+
+                            <div class="carousel-inner" role="listbox">
+                            </div>
+
+                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+
+                        </div>
+
+                        <!--star list -->
+                        <div class="col-xs-12">
+                            <p>
+                                <span class="glyphicon glyphicon-star-empty" aria-hidden="true" style="color:yellow;"></span>
+                                <span class="glyphicon glyphicon-star-empty" aria-hidden="true" style="color:yellow;"></span>
+                                <span class="glyphicon glyphicon-star-empty" aria-hidden="true" style="color:yellow;"></span>
+                                <span class="glyphicon glyphicon-star-empty" aria-hidden="true" style="color:yellow;"></span>
+                                <span class="glyphicon glyphicon-star-empty" aria-hidden="true" style="color:yellow;"></span>
+                                <span style="color:gray;">({{buyinfo.buyer_counter}})</span>
+                            </p>
+                        </div>
+
+                        <!-- activities info -->
+                        <div class="col-xs-12 text-left" style="padding-left:0px; padding-right:0px;">
+                            <p class="col-xs-4" style="color: red;"><b style="font-size:20px;">${{buyinfo.price}}</b>起</p>
+                            <div class="col-xs-8">
+
+                                <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#shareModal" style="background-color:#F3F3F3;">
+                                    <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                                    <b> 連結分享</b>
+                                </button>
+
+                                <!-- shared modal -->
+                                <div class="modal fade text=" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" style="padding-top:40%;">
+                                        <div class="modal-content" style="background-color:#F3F3F3;">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                <h4 class="modal-title" id="myModalLabel" style="color:red">分享好康!</h4>
+                                                <p>好友首購成功，送您50元折扣卷</p>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-xs-3" style="font-size:9px; text-align:center;">
+                                                        <a href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent(location.href)) ));">
+                                                            <img class="shareimg" src="http://www.techinfo.co.in/ti-content/uploads/post-img/2015/03/c0b00d2c155f2def440a.png" style="border-radius:10px;">
+                                                            <strong>Facebook</strong>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="col-xs-3" style="font-size:9px; text-align:center;">
+                                                        <a href="javascript: void(window.open('http://line.me/R/msg/text/?'.concat(encodeURIComponent(location.href)) ));">
+                                                            <img class="shareimg" src="https://lh4.ggpht.com/IkQ_kmk57G3fFkTOmtfQdp2XTZ8gic119yqvsKDkvbuPotfC7R05JPBdtuGm3OmA15xE=w300">
+                                                            <strong>LINE</strong>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="col-xs-3" style="font-size:9px; text-align:center; cursor: pointer; ">
+                                                        <a class="jiathis_button_weixin">
+                                                            <img class="shareimg" src="https://lh3.ggpht.com/zC5Q4atR1JytzagSPIPAg-z4uItJGsTVjZHvf9nSeGdwrwnuPPW_OqMk6FAI3DJvzQ=w300">
+                                                            <strong>WeChat</strong>
+                                                        </a>
+                                                        <div>
+                                                            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1" charset="utf-8"></script>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- shared modal -->
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-xs-12" style="padding-top:15px; padding-left:0px; color:gray;">
+                            <s class="col-xs-3"></s>
+                            <p class="col-xs-5"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span>已有人 {{buyinfo.buyer_counter}} 購買</p>
+                            <p class="col-xs-4 text-right"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span> {{buyinfo.end_date}}</p>
+                        </div>
+                        <hr size="3" width="100%" align="center">
+                        <div id="detail" class="col-xs-12" style="padding-left:0px;">
+                            <b class="col-xs-12" ng-bind-html="buyinfo.detail"></b>
+                        </div>
+                    </div>
+
+                    <!-- Product info -->
+                    <div role="tabpanel" class="col-xs-12 tab-pane" id="product">
+                        <h5 style="color:#696969;"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span>商品介紹</h5>
+                        <h6 style="color:red"><p ng-bind-html="buyinfo.explainText"></p></h6>
+                        <img src="/upload/image/{{item.url}}" style="width:100%;" ng-repeat="item in buyinfo.explainMaterials.records">
+
+
+                    </div>
+
+                    <!-- Delivery info -->
+                    <div role="tabpanel" class="tab-pane col-xs-12" id="delivery">
+                        <h5 style="color:#696969;"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>宅配資訊</h5>
+                        <ul style="padding-left:17px;">
+                            <li>商品最晚於購買成功7日內出貨完畢，出貨後配送約有2~3天工作日，恕無法指定送達時間。</li>
+                            <li>本優惠宅配到府(新竹貨運/便利帶)，不適用離島、外島地區，且不另提供自取服務。</li>
+                            <li>本優惠採常溫配送，免運費(不同訂單無法合併寄送)。</li>
+                            <li>購物皆享7天(含例假日)鑑賞期，退回之商品必須是回復原狀且包裝完整，退貨之運費由店家負責，詳見「<a href="#" style="color:blue; text-decoration:underline; ">退貨說明</a>」</li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 footer-detail">
+                <h5>客服電話： +886-2-27985698 (例假日暫不提供服務)</h5>
+                <h5>服務時間：週一~週五 09:00-12:00/13:30-1730</h5>
+                <h5>Copyright c 2016 瑞良實業有限公司 All rights reserved</h5>
+            </div>
+        </div>
+    </div>
+    <common-footer instance="footer"></common-footer>
+</div>

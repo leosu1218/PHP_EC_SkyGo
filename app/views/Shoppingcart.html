@@ -1,0 +1,30 @@
+
+
+	<div class="container" ng-app="">
+		<div class="row hidden-xs hidden-sm">
+	        <div class="col-md-12" style="padding-left: 15px; padding-bottom: 15px;">
+	        	<p class="col-md-6" style="padding-left: 0px;">HOME <img src="/images/arrow.png"> 購物車</p>
+	        </div>	 
+        </div>
+
+        <cart-state-bar index="index"></cart-state-bar>
+
+        <div ng-hide="step[3]">
+
+            <!-- 1 . 確認購買清單 -->
+            <check-cart-items step="step" next="next" order="order" cart="cart" order-preview="orderPreview"></check-cart-items>
+
+			<!-- 2 . 選擇付款方式 -->
+            <cart-how-to-pay step="step" next="next" order="order" cart="cart" order-preview="orderPreview"></cart-how-to-pay>
+
+			<!-- 3 . 填寫訂單資料 -->
+            <cart-order-form step="step" next="next" order="order" cart="cart" order-preview="orderPreview"></cart-order-form>
+
+		</div>
+
+		<!-- 4 . 購物完成 -->
+        <cart-buy-success step="step" next="next" order="order" cart="cart" order-preview="orderPreview"></cart-buy-success>
+
+	</div>
+
+

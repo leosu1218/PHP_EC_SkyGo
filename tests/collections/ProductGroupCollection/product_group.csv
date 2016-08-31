@@ -1,0 +1,7 @@
+"id","name","parent_group_id","type"
+1,"systemRoot",0,0
+2,"wholesale_root",0,0
+3,"retail_root",0,0
+4,"其他產品群",2,2
+5,"3C",2,2
+6,"test",2,2

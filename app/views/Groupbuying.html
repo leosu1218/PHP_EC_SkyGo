@@ -1,0 +1,107 @@
+
+
+	<div class="container">
+        <div class="row">
+	        <div class="col-md-12" style="padding-left: 15px; padding-bottom: 15px;">
+	        	<p class="col-md-6" style="padding-left: 0px;">HOME <img src="/images/arrow.png"> 團購</p>
+	        </div>	     
+            <div class="col-md-12 collectionimg hidden-xs"  >
+                <div class="col-md-12">
+                    <a href="{{groupImg.imglink}}"><img src="/upload/website/homepage/{{groupImg.filename}}"></a>
+                </div>
+            </div>       
+            <div class="col-md-12">
+            	<div class="circle"><a href="mailto:server@skygo.com" style="color:white;text-decoration:none">
+                    <p id="group-writing">我要</p>
+                    <p>開團</p></a>
+                </div>     
+                <div class="circle-detail">
+                    <button type="button" class="btn btn-link" ng-click = "newSequence('new')">新品</button>|<button type="button" class="btn btn-link" ng-click = "newSequence('hot')">熱門</button>|<button type="button" class="btn btn-link" ng-click = "newSequence('end')">最後倒數</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 大屏幕 -->
+    <div class="container visible-md visible-lg">
+        <div ng-repeat="groupBuys in groupBuyArray">
+    	<div class="row">
+            <div ng-repeat="groupBuy in groupBuys">
+            	<div class="col-md-4 group-body" style="padding-top:15px;">
+            		<div class="col-md-12 group-border deletepad">
+            			<img src="{{imagePath + groupBuy.coverPhoto}}">
+            		</div>
+            		<div class="col-md-12" style="padding-left: 5px;padding-right: 5px;">
+        				<div class="col-md-12 deletepad">
+        					<h2 class="text-center">{{groupBuy.name}}</h2>
+        				</div>
+        				<div class="col-md-12 deletepad">
+        					<div class="col-md-5 deletepad" id="group-left-margin">
+        						原價NT$ <span id="first-price">{{groupBuy.suggestPrice}}</span>
+        					</div>
+        					<div class="col-md-7 deletepad text-right">
+        						團價NT$ <span id="last-price"> {{groupBuy.price}}</span>
+        					</div>
+        				</div>
+        				<div class="col-md-12 deletepad">
+        					<div class="col-md-8 deletepad">
+        						團購人數 <span style="font-size:32px;color:#f22067;">{{groupBuy.buyer_counter}}</span>
+        					</div>
+        					<div class="col-md-4 deletepad text-right shoppingcart-group" id="group-right-margin" style="margin-top: 12px;">
+        						<a href="gb.html#!/{{groupBuy.id}}"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>跟團去</a>
+        					</div>
+        				</div>
+        				<div class="col-md-12 deletepad">
+        					<span class="glyphicon glyphicon-time group-time-c" aria-hidden="true"></span>
+        					<span class="group-time">剩餘時間:{{groupBuy.days}}天{{groupBuy.hours}}時{{groupBuy.minutes}}分</span>
+        				</div>
+            		</div>
+            	</div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- 小屏幕 -->
+    <div class="container visible-xs visible-sm">
+        <div ng-repeat="groupBuys in groupBuyArrayXs">
+        <div class="row">
+            <div ng-repeat="groupBuy in groupBuys">
+                <div class="col-xs-6 group-body" style="padding-top:15px;">
+                    <div class="col-xs-12 group-border deletepad">
+                        <img src="{{imagePath + groupBuy.coverPhoto}}">
+                    </div>
+                    <div class="col-xs-12" style="padding-left: 5px;padding-right: 5px;">
+                        <div class="deletepad">
+                            <h3 class="text-center">{{groupBuy.name}}</h3>
+                        </div>
+                        <div class="col-xs-12 deletepad">
+                            <div class="col-xs-12 deletepad" id="group-left-margin">
+                                原價 <span id="first-price">{{groupBuy.suggestPrice}}</span>
+                            </div>
+                            <div class="col-xs-12 deletepad">
+                                團價NT. <span id="last-price"> {{groupBuy.price}}</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 deletepad">
+                            <div class="col-xs-12 deletepad">
+                                團購人數 <span style="font-size:26px;color:#f22067;">{{groupBuy.buyer_counter}}</span>
+                            </div>
+                            <div class="col-xs-12 deletepad shoppingcart-group" id="group-right-margin">
+                                <a href="gb.html#!/{{groupBuy.id}}"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>跟團去</a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 deletepad">
+                            <span class="glyphicon glyphicon-time group-time-c" aria-hidden="true"></span>
+                            <span class="group-time">剩餘時間:{{groupBuy.days}}天{{groupBuy.hours}}時{{groupBuy.minutes}}分</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="row text-center" style="padding:30px;">
+        <h5><sky-go-pagination instance="pagination"></sky-go-pagination></h5>
+    </div>
+

@@ -1,0 +1,179 @@
+<header class="top-header">
+    <nav class="navbar navbar-default navbar-fixed-top" style="border-color:#f0dcd5;border-width:0;">
+        <div class="container-fluid" style="background-color: #d8bab2;">
+            <div class="container">
+                <div class="navbar-header visible-md visible-lg" id="back">
+                    <!-- phone view -->
+                    <button id="nav-collapsed" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="margin-top: 12px;">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>                 
+                    <!-- shopping-cart -->
+                    <!-- <a href="#!/shoppingcart" class="visible-xs">
+                        <div class="cart-circle">
+                            <div class="cart-circle-red">
+                                <div class="cart-top">{{cart.length}}</div>
+                            </div>
+                        </div>
+                        <div class="glyphicon glyphicon-shopping-cart header-cart" aria-hidden="true"></div>
+                    </a> -->
+                    <!-- search icon -->
+                    <a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarTwo" aria-expanded="false" aria-controls="navbar" id="search-icon">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </a>
+                    <a id="back" href="#!/">
+                        <img src="/images/logo.png" class="img-responsive home-header-logo">
+                    </a>
+                </div>
+                <div class="navbar-header visible-xs visible-sm header-phone-navbar" id="back">
+                    <button id="nav-collapsed" type="button" class="navbar-toggle collapsed header-phone-button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>     
+                    <a class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarTwo" aria-expanded="false" aria-controls="navbar" id="search-icon">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </a>
+                    <a id="back" href="#!/">
+                        <img src="/images/logo.png" class="img-responsive home-header-logo">
+                    </a>
+                </div>
+
+                <div id="navbar" class="navbar-collapse collapse header-dropdown">
+                    <ul class="nav navbar-nav nacbar-left">
+                        <!-- <li ng-show="(oauth.result == 'success')" class="visible-xs visible-sm">
+                            <a id="back" href="" ng-click="showLogout()" class="user-logo">
+                                <h5><span class="glyphicon glyphicon-user" aria-hidden="true"></span>{{oauth.name}}</h5>
+                            </a>
+                        </li> -->
+                        <li class="dropdown">
+                            <a class="header-border header-name" href="" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" ng-click="onMainTagClick(homeTeg1[0].chinese_name, homeTeg1[0].id)">
+                                <h4>{{homeTeg1[0].chinese_name}}</h4>
+                                <h6>{{homeTeg1[0].english_name}}</h6>
+                            </a>
+                            <ul class="dropdown-menu row hidden-sm hidden-md hidden-lg" role="menu" aria-labelledby="dropdownMenu1">
+                                <li ng-repeat="oneTegSub1List in oneTegSub1Lists" class="{{selectCss(oneTegSub1List.select)}}"><a ng-click="onTagClick(oneTegSub1Lists, oneTegSub1List, menu1)" style="text-align: center;">{{oneTegSub1List.name}}</a></li>
+                                <li ng-repeat="oneTegSub2List in oneTegSub2Lists" class="{{selectCss(oneTegSub2List.select)}}"><a href="" ng-click="onTagClick(oneTegSub2Lists, oneTegSub2List, menu1)" style="text-align: center;">{{oneTegSub2List.name}}</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="header-border header-name" href="" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" ng-click="onMainTagClick(homeTeg2[0].chinese_name , homeTeg2[0].id)">
+                                <h4>{{homeTeg2[0].chinese_name}}</h4>
+                                <h6>{{homeTeg2[0].english_name}}</h6>
+                            </a>
+                            <ul class="dropdown-menu row hidden-sm hidden-md hidden-lg" role="menu" aria-labelledby="dropdownMenu1">
+                                <li ng-repeat="twoTegSub1List in twoTegSub1Lists" class="{{selectCss(twoTegSub1List.select)}}"><a ng-click="onTagClick(twoTegSub1Lists, twoTegSub1List, menu2)" style="text-align: center;">{{twoTegSub1List.name}}</a></li>
+                                <li ng-repeat="twoTegSub2List in twoTegSub2Lists" class="{{selectCss(twoTegSub2List.select)}}"><a ng-click="onTagClick(twoTegSub2Lists, twoTegSub2List, menu2)" style="text-align: center;">{{twoTegSub2List.name}}</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="header-border header-name" href="" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" ng-click="onMainTagClick(homeTeg3[0].chinese_name , homeTeg3[0].id)">
+                                <h4>{{homeTeg3[0].chinese_name}}</h4>
+                                <h6>{{homeTeg3[0].english_name}}</h6>
+                            </a>
+                            <ul class="dropdown-menu row hidden-sm hidden-md hidden-lg" role="menu" aria-labelledby="dropdownMenu1">
+                                <li ng-repeat="threeTegSub1List in threeTegSub1Lists" class="{{selectCss(threeTegSub1List.select)}} nselected"><a ng-click="onTagClick(threeTegSub1Lists, threeTegSub1List, menu3)" style="text-align: center;">{{threeTegSub1List.name}}</a></li>
+                                <li ng-repeat="threeTegSub2List in threeTegSub2Lists" class="{{selectCss(threeTegSub2List.select)}} nselected"><a ng-click="onTagClick(threeTegSub2Lists, threeTegSub2List, menu3)" style="text-align: center;">{{threeTegSub2List.name}}</a></li>
+                            </ul>
+                        </li>
+                        <!-- 待團購功能完整時新增 -->
+                        <!-- <li>
+                        <a id="back" href="#!/groupbuying" class="header-border header-name">
+                            <h4>團購</h4>
+                            <h6>GROUP BUYING</h6>
+                        </a>
+                    </li> -->
+                        <li>
+                            <a id="back" href="#!/blogger" class="header-name header-new-border">
+                                <h4>部落客推薦</h4>
+                                <h6>BLOGGER</h6>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="back" href="https://tw.mall.yahoo.com/store/109lifeb" class="header-name" target="_blank">
+                                <h4>YAHOO超級商城</h4>
+                                <h6>SHOP</h6>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- <li role="presentation" class="dropdown-header visible-xs visible-sm">
+                            <hr class="left-hr">
+                            <h5 class="person-header-font">會員中心</h5>
+                            <hr class="right-hr">
+                        </li> -->
+                        <!-- li ng-show="(oauth.result == 'success')" class="visible-xs visible-sm">
+                            <a id="back" href="" ng-click="showLogout()" class="user-logo">
+                                <div class="haeder-nav-search" style="margin-left: 85px;">Hi,{{oauth.name}}</div>
+                            </a>
+                        </li> -->
+                        <li class="visible-md visible-lg" ng-show="(oauth.result != 'success')">
+                            <a id="back" href="" ng-click="showLogin()">
+                                <div class="haeder-nav-search person-phone-searchbar">登入/註冊</div>
+                            </a>
+                        </li>
+                        <li ng-show="(oauth.result == 'success')" class="visible-md visible-lg">
+                            <a id="back" href="" ng-click="showLogout()">
+                                <div class="haeder-nav-search">Hi,{{oauth.name}}</div>
+                            </a>
+                        </li>
+                        <li class="visible-md visible-lg">
+                            <a id="back" href="#!/shoppingcart" style="padding: 6px 0px;">
+                                <div class="haeder-nav-search">
+                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: #fff;"></span> 購物車
+                                    <span style="position: relative;"> 
+                                    <img src="/images/shoppingheart.png"> 
+                                    <span style="position: absolute; top: -1px; left: 7px; color: black; width: 20px">{{cart.length}}</span>
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li ng-show="(oauth.result == 'success')" class="visible-lg visible-md">
+                            <a id="back" href="#!/personalinformation">
+                                <div class="haeder-nav-search">會員中心</div>
+                            </a>
+                        </li>
+                        <li class="visible-lg visible-md">
+                            <a id="back" href="#!/order">
+                                <div class="haeder-nav-search">
+                                    訂單
+                                </div>
+                            </a>
+                        </li>
+                        <!-- <li class="visible-xs visible-sm">
+                            <a id="back" href="#!/order">
+                                <div class="haeder-nav-search">
+                                    訂單查詢
+                                </div>
+                            </a>
+                        </li>
+                        <li ng-show="(oauth.result == 'success')" class="visible-xs visible-sm">
+                            <a id="back" href="#!/changepassword">
+                                <div class="haeder-nav-search">忘記密碼</div>
+                            </a>
+                        </li>   -->                                     
+                        <form class="navbar-form hidden-xs" role="search">
+                            <div class="form-group-xs">
+                                <input type="text" class="form-control searchtex" style="width: 100%;" placeholder="Search"  ng-model="search"/>
+                            </div>
+                        </form>
+                    </ul>
+                </div>
+
+                <div id="navbarTwo" class="navbar-collapse collapse">
+                    <div class="form-group-xs hidden-lg hidden-md hidden-lg hidden-sm">
+                        <input type="text" class="form-control searchtex" style="width: 100%;" placeholder="Search" ng-model="search" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- <sb-alert instance="loginView"></sb-alert> -->
+    <sb-alert instance="logoutView"></sb-alert>
+    <user-login instance="loginViewShow" brin="true"></user-login>
+</header>
+

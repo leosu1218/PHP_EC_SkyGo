@@ -1,0 +1,91 @@
+<div class="container">
+	<div class="row">
+        <div class="col-md-12 hidden-xs hidden-sm" style="padding-left: 15px; padding-bottom: 15px;">
+            <p class="col-md-6" style="padding-left: 0px;">
+                HOME <img src="/images/arrow.png"> 會員中心/個人資料
+            </p>
+        </div>              
+    </div>
+
+    <div class="row person-top-background visible-xs visible-sm">
+        <div class="col-xs-6">
+                會員中心/個人資料
+        </div>
+        <div class="col-xs-6 text-right">
+            <a href="" ng-click="showLogout()" class="logout-text">
+                登出
+            </a>
+        </div>
+    </div>
+
+	<div class="row person-background-margin">
+		<div class="col-md-2">
+			<member idname="'personalinformation'" class="visible-lg visible-md"></member>
+		</div>
+		<div class="col-md-10">
+			<p class="red privacy-star">部分資料以*隱藏處理，保護您的個人隱私</p>
+			<form class="form-horizontal" role="form" id="phone-form">
+				<div class="form-group">
+				    <label class="col-md-2 control-label">請輸入Email:</label>
+				    <div class="col-md-10">
+				      	<input type="email" class="form-control" ng-model="items.email" disabled>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label class="col-md-2 control-label">姓名:</label>
+				    <div class="col-md-10">
+				      	<input type="text" class="form-control" ng-model="items.name" disabled>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label class="col-md-2 control-label">姓別</label>
+				    <div class="radio col-md-10">
+					  	<label class="col-md-3">
+					    	<input id="genderRadiosMale" type="radio" name="optionsRadios" value="1" disabled>男
+					  	</label>
+					  	<label class="col-md-3">
+					    	<input id="genderRadiosFemale" type="radio" name="optionsRadios" value="0" disabled>女
+					  	</label>
+					</div>
+				</div>
+				<div class="form-group">
+				    <label class="col-md-2 control-label">出生日期:</label>
+				    <div class="col-md-10">
+				      	<datetime-picker instance="birthdayDate" idname="'userBirthday'" datetype="'date'"></datetime-picker>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label class="col-md-2 control-label">地址:</label>
+				    <div class="col-md-10">
+				      	<input type="address" class="form-control" ng-model="items.address" disabled>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <label class="col-md-2 control-label">手機:</label>
+				    <div class="col-md-10">
+				      	<input type="phone" class="form-control" ng-model="items.phone" disabled>
+				    </div>
+				</div>
+				<div class="form-group" ng-hide="modifyShow">
+				    <div class="col-md-offset-2 col-md-10 form-button">
+				      	<button type="submit" class="btn btn-default" ng-click="updateInformation()">確定</button>
+				    </div>
+				</div>
+				<div class="form-group" ng-show="modifyShow">
+				    <div class="col-md-offset-2 col-md-10 form-button">
+				      	<button type="submit" class="btn btn-default" ng-click="modifyStart()">修改</button>
+				    </div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- <div class="row" id="back-white"></div> -->
+</div>
+<sb-alert instance="alert"></sb-alert>
+
+<style type="text/css">
+	.form-group {
+    	width: 85%;
+    }
+</style>

@@ -1,0 +1,148 @@
+
+
+<form class="form-horizontal page" id="page-wrapper">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <strong>
+                <h2 class="page-header" style="font-family:微軟正黑體; font-weight:500">建立您的影音銷售</h2>
+            </strong>
+        </div>
+    </div>
+
+    <!-- activity info -->
+    <div class="row">
+        <div class="col-md-4">
+            <!-- Price setting -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    設定價格
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <div style="margin:0 5px">
+                            <div class="form-group">
+                                <label>產品名稱</label>
+                                <input class="form-control" placeholder="" ng-model="record.productName" type="text" disabled/>
+                            </div>
+                            <div class="form-group">
+                                <label>*銷售名稱</label>
+                                <input class="form-control" placeholder="請輸入影音銷售名稱，例如：限時48小時! 德國LC鑄鐵鍋-絕版款!" ng-model="record.name" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label>*商品售價</label>
+                                <input class="form-control" placeholder="請輸入消費者支付的購買金額，例如：240" ng-model="record.price" type="text" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Price setting -->
+        </div>
+
+
+        <!-- Datetime setting -->
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    設定銷售進行時間
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <!-- date info -->
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div style="margin:0 5px">
+                                <div class="form-group">
+                                    <label>*開始日期</label>
+                                    <datetime-picker instance="startdate" idname="'ready_day'"></datetime-picker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="margin:0 5px">
+                                <div class="form-group">
+                                    <label>*結束日期</label>
+                                    <datetime-picker instance="enddate" idname="'removed_day'"></datetime-picker>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label>商品銷售時間若與商品上下架時間衝突時，以上下架時間為主。若因商品下架時間到期而銷售暫停，可延長下架時間繼續銷售。</label>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+        <!-- /Datetime setting -->
+    </div>
+
+    <!-- create button group -->
+    <div class="row" style="padding-bottom: 20px">
+        <div class="col-md-12">
+            <div class="btn-group " role="group" aria-label="...">
+                <div class="btn-group" role="group">
+                    <button ng-click="update()" type="button" class="btn btn-primary">修改</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button ng-click="cancel()" type="button" class="btn btn-default">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- create button group /-->
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    設定價格
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <div style="margin:0 5px">
+                            <div class="form-group">
+                                <label>加價購商品</label>
+                                <input class="form-control" placeholder="被選擇到的加價購商品名稱" ng-model="relationProductName" type="text" ng-model="relationProductName" disabled/>
+                            </div>
+                            <div class="form-group">
+                                <label>*優惠價</label>
+                                <input class="form-control" placeholder="本銷售只需要再支付此價格即可購買此商品" ng-model="relationProductPrice" type="text" ng-disabled="showRemoveRelationProductButton"/>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="button" value="清除欄位" ng-click="clearRelationProduct()" ng-show="showAppendRelationProductButton"/>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control btn-primary" type="button" value="新增加價購商品" ng-click="appendRelationProduct()" ng-show="showAppendRelationProductButton"/>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control btn-danger" type="button" value="移除加價購商品" ng-click="removeRelationProduct()" ng-show="showRemoveRelationProductButton"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    設定銷售加價購商品
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <wholesale-product-list instance="relationProductList" enable-select="false" ></wholesale-product-list>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+    </div>
+    <!-- activity info /-->
+
+
+</form>
+<sb-alert instance="alert"></sb-alert>

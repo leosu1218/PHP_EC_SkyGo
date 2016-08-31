@@ -1,0 +1,3 @@
+"id","domain_name","group_id","name","account","email","hash","salt","oauth_id","oauth_type"
+"1","109life.com","2","groupbuying","groupbuying@109life.com","groupbuying@109life.com","------","------",NULL,NULL
+"2","109life.com","1","leo","leo@gmail","leo@gmail","c49280069f194e727983ce0b7beecb20097c9180","VttZQ",NULL,NULL

@@ -1,0 +1,149 @@
+
+
+<form class="form-horizontal page" id="page-wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="page-header">修改使用者權限</h1>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4  col-sm-offset-3" style="margin-bottom:20px;">
+            <font size="3"><input type="checkbox" > 群組管理者</font>
+        </div>
+        <div class="row" >
+            <div class="col-sm-7 col-sm-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading" is-open="true" is-disabled="true">
+                        <font size="3">群組權限</font>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-offset-1">
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label>商品管理</label>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">查看商品</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">新增商品</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">刪除商品</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>人員管理</label>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">新增人員</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">修改人員</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-4 col-sm-offset-1">
+                                <form role="form">
+
+                                    <div class="form-group">
+                                        <label>訂單管理</label>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">新增訂單</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">修改訂單</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">刪除訂單</label>
+                                        </div>
+                                    </div>                                    
+                                    <div class="form-group">
+                                        <label>報表管理</label>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">查看報表</label>
+                                        </div>
+                                    </div>                            
+                                </form>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>    
+        </div>
+
+        <div class="row" >
+            <div class="col-sm-7 col-sm-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading" is-open="true" is-disabled="true">
+                        <font size="3">個人權限</font>                
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-offset-1">
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label>影片管理</label>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">新增影片</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">查看影片</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">刪除影片</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>群組管理</label>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">新增群組</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">修改群組權限</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-4 col-sm-offset-1">
+                                <form role="form">
+
+                                    <div class="form-group">
+                                        <label>活動管理</label>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">新增活動</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">修改活動內容</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">刪除活動</label>
+                                        </div>
+                                    </div>                                    
+                                    <div class="form-group">
+                                        <label>推薦影片管理</label>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">查看推薦影片</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">刪除推薦影片</label>
+                                        </div>
+                                    </div>                            
+                                </form>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>  
+        </div>
+        <div class="row" >
+            <div class="col-sm-4 col-sm-offset-3 control-label" style="margin-bottom:20px;">
+                <button type="submit" class="btn btn-default" style="width:120px;" ng-click="modifyUserCompetence()">送出</button>
+            </div> 
+        </div> 
+    </div>
+
+</form>

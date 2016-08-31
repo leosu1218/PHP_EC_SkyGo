@@ -1,0 +1,83 @@
+<div class="container shopping-padding">
+    <div class="row visible-lg visible-md">
+
+        <!-- step1 -->
+        <div class="col-md-3 shopping-border" style="border-right-style: none;" ng-style="topStyle[0]">
+
+            <div class="col-md-2 deletepad-top text-center">1</div>
+            <div class="col-md-10 deletepad-down">
+                <p>確認購買清單</p>
+                <p class="shopping-p">CONFIRM THE PURCHASE LISTT</p>
+            </div>
+
+        </div>
+        <div class="col-md-1 bb" ng-style="backStyle[1]"><div id="tri" ng-style="triStyle[0]"></div>
+        </div>
+
+
+        <!-- step2 -->
+        <div class="col-md-2 shopping-border" style="border-right-style: none;border-left-style: none;" ng-style="topStyle[1]">
+            <div class="col-md-2 deletepad-top text-center">2</div>
+            <div class="col-md-10 deletepad-down">
+                <p>選擇付款方式</p>
+                <p class="shopping-p">CHOOSE PAYMENT</p>
+            </div>
+        </div>
+        <div class="col-md-1 bb" ng-style="backStyle[2]"><div id="tri" ng-style="triStyle[1]"></div>
+        </div>
+
+        <!-- step3 -->
+        <div class="col-md-2 shopping-border" style="border-right-style: none;border-left-style: none;" ng-style="topStyle[2]">
+            <div class="col-md-2 deletepad-top text-center">3</div>
+            <div class="col-md-10 deletepad-down">
+                <p>填寫訂單資料</p>
+                <p class="shopping-p">FILL IN THE ADD</p>
+            </div>
+        </div>
+        <div class="col-md-1 bb" ng-style="backStyle[3]"><div id="tri" ng-style="triStyle[2]"></div>
+        </div>
+
+        <!-- step4 -->
+        <div class="col-md-2 shopping-border" style="border-left-style: none;" ng-style="topStyle[3]">
+            <div class="col-md-2 deletepad-top text-center">4</div>
+            <div class="col-md-10 deletepad-down">
+                <p>購物完成</p>
+                <p class="shopping-p">SHOPPING COMPLETED</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="row visible-xs visible-sm cart-phone-bar" style="margin: -57px -30px;">
+        <div class="col-xs-12 bar-bottom">
+            <div class="col-xs-4 text-center" ng-style="phoneStyle[0]" ng-show="checkBar">
+                <p class="center-p">確認商品明細</p>
+            </div>
+            <div class="col-xs-1" id="phone-tri" ng-style="phoneTriStyle[0]" ng-show="checkBar"></div>
+            <div class="col-xs-4 text-center" ng-style="phoneStyle[1]" ng-hide="checkBar">
+                <p class="center-p">確認商品明細</p>
+            </div>
+            <div class="col-xs-1" id="phone-tri" ng-style="phoneTriStyle[1]" ng-hide="checkBar">
+            </div>
+            <div class="col-xs-4 text-center" ng-style="phoneStyle[2]">
+                <p class="center-p">填寫付款資料</p>
+            </div>
+            <div class="col-xs-1" id="phone-tri" ng-style="phoneTriStyle[2]"></div>
+            <div class="col-xs-3 text-center" ng-style="phoneStyle[3]">
+                <p class="center-p">訂購完成</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    .bar-bottom {
+        border-bottom: 1px solid #888;
+    }
+    #phone-tri{
+        width: 0;
+        height: 0;
+    }
+    .center-p{
+        margin: 5px 0 5px;
+    }
+</style>

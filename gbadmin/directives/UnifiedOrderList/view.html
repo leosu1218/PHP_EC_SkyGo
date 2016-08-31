@@ -1,0 +1,91 @@
+<div>
+    <!-- keyword search input -->
+    <div class="col-md-7">
+        <label class="col-md-12">輸入搜尋區間
+        </label>
+        <form class="form-inline" role="form">
+            <div class="form-group col-md-12">
+                <span>下單時間:</span>
+                <div class="input-group">
+                    <label class="sr-only"></label>
+                    <input type="date" class="form-control" ng-model="orderDateStart" placeholder="請輸入開始時間" ng-change="onDateInputChanged(orderDateStart, 'orderDateStart')">
+                </div><span>
+                                至
+                                </span>
+                <div class="input-group">
+                    <label class="sr-only"></label>
+                    <input type="date" class="form-control" ng-model="orderDateEnd" placeholder="請輸入結束時間" ng-change="onDateInputChanged(orderDateEnd, 'orderDateEnd')">
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <br>
+                <span>出貨時間:</span>
+                <div class="input-group">
+                    <label class="sr-only"></label>
+                    <input type="date" class="form-control" ng-model="deliveryDateStart" placeholder="請輸入開始時間" ng-change="onDateInputChanged(deliveryDateStart, 'deliveryDateStart')">
+                </div><span>
+                                至
+                                </span>
+                <div class="input-group">
+                    <label class="sr-only"></label>
+                    <input type="date" class="form-control" ng-model="deliveryDateEnd" placeholder="請輸入結束時間" ng-change="onDateInputChanged(deliveryDateEnd, 'deliveryDateEnd')">
+                </div>
+            </div>
+
+            <!-- page's config-->
+            <div class="form-group col-md-12">
+                <br>
+                <span>顯示的資料筆數:</span>
+                <select class="form-control" ng-model="pageSize">
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="300">300</option>
+                    <option value="400">400</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                    <option value="999999">不限制</option>
+                </select>
+            </div>
+            <!-- page's config -->
+
+        </form>
+    </div>
+    <div class="col-md-5">
+        <div class="form-group">
+            <label>輸入關鍵字</label>
+            <input class="form-control" ng-model="search.keyword" type="text" placeholder="搜尋買家姓名, 信箱, 訂單編號, 物流編號, 物流公司" />
+            <br>
+            <label>狀態</label>
+            <br>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">{{selectedItem.text}}</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" style="padding:0px;">
+                    <div ng-repeat="item in status.list">
+                        <li align="center" style="height:33px;">
+                            <button type="button" style="width:100%;" class="btn btn-default" ng-click="onStateSelectorChanged(item)">
+                                {{item.text}}
+                            </button>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <div class="col-md-12 text-right">
+                <button ng-click="defaultSearch()" type="button" class="btn btn-defult"><span class="glyphicon glyphicon-cancel" aria-hidden="true"></span> 清除搜尋資料</button>
+                <button ng-click="searchButtonOnClick()" type="button" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- list table -->
+    <sb-smart-table instance="table"></sb-smart-table>
+</div>
+<sb-alert instance="alert"></sb-alert>
+<sb-alert instance="specAlert"></sb-alert>
